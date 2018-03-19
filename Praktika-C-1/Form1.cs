@@ -26,7 +26,7 @@ namespace Praktika_C_1
         private void first_Click(object sender, EventArgs e)
         {
             first.Enabled = false;
-            firsttask fi = new firsttask();
+            W fi = new W();
             fi.Owner = this;
             fi.Show();
         }
