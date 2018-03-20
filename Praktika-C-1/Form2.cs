@@ -20,6 +20,7 @@ namespace Praktika_C_1
 {
     public partial class W : Form
     {
+   
         public W()
         {
             InitializeComponent();
@@ -28,6 +29,49 @@ namespace Praktika_C_1
         private void firsttask_FormClosing(object sender, FormClosingEventArgs e)
         {
             (this.Owner as Form1).first.Enabled = true;
+        }
+
+        private void W_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            clock.Text = DateTime.Now.ToLongTimeString();
+            datelabel.Text = DateTime.Now.ToLongDateString();
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            clock.Text = DateTime.Now.ToLongTimeString();
+            timer1.Start(); 
+        }
+
+        private void addtimer_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(descrp.Text))
+            {
+                MessageBox.Show("Enter Name Event.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(dateTimePicker1.Value.Date == DateTime.Now.Date)
+            {
+                if(dateTimePicker2.Value.Hour > DateTime.Now.Hour)
+                {
+                    dataGridView1.Rows.Add(dateTimePicker1.Text, dateTimePicker2.Text, descrp.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Check Time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else if(dateTimePicker1.Value.Date > DateTime.Now.Date)
+            {
+                dataGridView1.Rows.Add(dateTimePicker1.Text, dateTimePicker2.Text, descrp.Text);
+            }
+            else
+            {
+                MessageBox.Show("Check Date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            
         }
     }
 }
