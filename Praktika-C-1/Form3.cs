@@ -28,10 +28,17 @@ namespace Praktika_C_1
             (this.Owner as Form1).second.Enabled = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            radiator.setActive(true);
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //   if (radiator.getActive() == false)
+        //    {
+        //        radiator.setActive(true);
+        //    }
+        //   else
+        //    {
+        //        radiator.setActive(false);
+        //    }
+        //}
 
         private void secondtask_Load(object sender, EventArgs e)
         {
@@ -115,6 +122,76 @@ namespace Praktika_C_1
             else
             {
                 actived.Text = "turnoff";
+            }
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            if (radiator.getActive() == false)
+            {
+                radiator.setActive(true);
+                pictureBox6.Image = Properties.Resources.switchon;
+            }
+            else
+            {
+                radiator.setActive(false);
+                pictureBox6.Image = Properties.Resources.switchoff;
+            }
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            if (heater.getActive() == false)
+            {
+                heater.setActive(true);
+                pictureBox7.Image = Properties.Resources.switchon;
+            }
+            else
+            {
+                heater.setActive(false);
+                pictureBox7.Image = Properties.Resources.switchoff;
+            }
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (lamp.getActive() == false)
+            {
+                lamp.setActive(true);
+                pictureBox8.Image = Properties.Resources.switchon;
+            }
+            else
+            {
+                lamp.setActive(false);
+                pictureBox8.Image = Properties.Resources.switchoff;
+            }
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            if (coffe.getActive() == false)
+            {
+                coffe.setActive(true);
+                pictureBox9.Image = Properties.Resources.switchon;
+            }
+            else
+            {
+                coffe.setActive(false);
+                pictureBox9.Image = Properties.Resources.switchoff;
+            }
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            if (refrigerator.getActive() == false)
+            {
+                refrigerator.setActive(true);
+                pictureBox10.Image = Properties.Resources.switchon;
+            }
+            else
+            {
+                refrigerator.setActive(false);
+                pictureBox10.Image = Properties.Resources.switchoff;
             }
         }
     }
