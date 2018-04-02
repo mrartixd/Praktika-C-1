@@ -86,14 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\DataSources\Form1.datasource" />
     <None Include="Properties\DataSources\Praktika_C_1.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\Praktika_C_1.Properties.Settings.datasource" />
@@ -105,6 +100,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -115,10 +115,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\switchoff.png" />
+    <None Include="img\switch %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\switchon.png" />
+    <None Include="img\switch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\light-bulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\refrigerator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\water-heater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\radiator.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

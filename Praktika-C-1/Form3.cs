@@ -17,125 +17,107 @@ namespace Praktika_C_1
         static Device heater = new Device();
         static Device coffe = new Device();
         static Device refrigerator = new Device();
+        static Bitmap switchon = Properties.Resources.switch__1_;
+        static Bitmap switchoff = Properties.Resources._switch;
+        static double currentnum = 0;
         public secondtask()
         {
             InitializeComponent();
 
         }
-        
+
         private void secondtask_FormClosing(object sender, FormClosingEventArgs e)
         {
             (this.Owner as Form1).second.Enabled = true;
         }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //   if (radiator.getActive() == false)
-        //    {
-        //        radiator.setActive(true);
-        //    }
-        //   else
-        //    {
-        //        radiator.setActive(false);
-        //    }
-        //}
+        private void InvisibleInfo()
+        {
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            label10.Visible = false;
+            named.Visible = false;
+            energyd.Visible = false;
+            timerd.Visible = false;
+            actived.Visible = false;
+        }
+        private void VisibleInfo()
+        {
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
+            label10.Visible = true;
+            named.Visible = true;
+            energyd.Visible = true;
+            timerd.Visible = true;
+            actived.Visible = true;
+        }
 
         private void secondtask_Load(object sender, EventArgs e)
         {
+            current.Text = Convert.ToString(currentnum);
+            InvisibleInfo();
             lamp = new Device("Lamps", 20, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 30, 00), false);
             radiator = new Device("Radiator", 2000, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 14, 00, 00), false);
             heater = new Device("Water Heater", 8000, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 16, 00, 00), false);
             coffe = new Device("Coffe machine", 400, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 15, 00), false);
             refrigerator = new Device("Refrigerator", 110, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 00, 00), false);
-
         }
 
-        private void pictureBox3_MouseHover(object sender, EventArgs e)
+        private void CheckCurrentLabel()
         {
-            named.Text = lamp.getNameDevice();
-            energyd.Text = Convert.ToString(lamp.getEnergy());
-            dated.Text = Convert.ToString(lamp.getDateTime());
-            if (lamp.getActive() == true)
+            if(currentnum < 0)
             {
-                actived.Text = "active";
-            }
-            else
-            {
-                actived.Text = "turnoff";
+                currentnum = 0;
             }
         }
 
-        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
-            named.Text = heater.getNameDevice();
-            energyd.Text = Convert.ToString(heater.getEnergy());
-            dated.Text = Convert.ToString(heater.getDateTime());
-            if (heater.getActive() == true)
+            if (coffe.getActive() == false)
             {
-                actived.Text = "active";
+                current.Text = Convert.ToString(currentnum + coffe.getEnergy());
+                coffe.setActive(true);
+                pictureBox2.Image = switchon;
             }
             else
             {
-                actived.Text = "turnoff";
+                current.Text = Convert.ToString(currentnum - coffe.getEnergy());
+                coffe.setActive(false);
+                pictureBox2.Image = switchoff;
             }
         }
 
-        private void pictureBox2_MouseHover(object sender, EventArgs e)
+
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
-            named.Text = radiator.getNameDevice();
-            energyd.Text = Convert.ToString(radiator.getEnergy());
-            dated.Text = Convert.ToString(radiator.getDateTime());
-            if (radiator.getActive() == true)
+            if(lamp.getActive()==false)
             {
-                actived.Text = "active";
+                lamp.setActive(true);
+                pictureBox3.Image = switchon;
             }
             else
             {
-                actived.Text = "turnoff";
+                lamp.setActive(false);
+                pictureBox3.Image = switchoff;
             }
         }
 
-        private void pictureBox4_MouseHover(object sender, EventArgs e)
+        private void pictureBox5_Click(object sender, EventArgs e)
         {
-            named.Text = coffe.getNameDevice();
-            energyd.Text = Convert.ToString(coffe.getEnergy());
-            dated.Text = Convert.ToString(coffe.getDateTime());
-            if (coffe.getActive() == true)
+            if (refrigerator.getActive() == false)
             {
-                actived.Text = "active";
+                refrigerator.setActive(true);
+                pictureBox5.Image = switchon;
             }
             else
             {
-                actived.Text = "turnoff";
-            }
-        }
-
-        private void pictureBox5_MouseHover(object sender, EventArgs e)
-        {
-            named.Text = refrigerator.getNameDevice();
-            energyd.Text = Convert.ToString(refrigerator.getEnergy());
-            dated.Text = Convert.ToString(refrigerator.getDateTime());
-            if (refrigerator.getActive() == true)
-            {
-                actived.Text = "active";
-            }
-            else
-            {
-                actived.Text = "turnoff";
-            }
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            if (radiator.getActive() == false)
-            {
-                radiator.setActive(true);
-                pictureBox6.Image = Properties.Resources.switchon;
-            }
-            else
-            {
-                radiator.setActive(false);
-                pictureBox6.Image = Properties.Resources.switchoff;
+                refrigerator.setActive(false);
+                pictureBox5.Image = switchoff;
             }
         }
 
@@ -143,56 +125,54 @@ namespace Praktika_C_1
         {
             if (heater.getActive() == false)
             {
+                current.Text = Convert.ToString(currentnum + heater.getEnergy());
                 heater.setActive(true);
-                pictureBox7.Image = Properties.Resources.switchon;
+                pictureBox7.Image = switchon;
             }
             else
             {
+                current.Text = Convert.ToString(currentnum - heater.getEnergy());
                 heater.setActive(false);
-                pictureBox7.Image = Properties.Resources.switchoff;
-            }
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            if (lamp.getActive() == false)
-            {
-                lamp.setActive(true);
-                pictureBox8.Image = Properties.Resources.switchon;
-            }
-            else
-            {
-                lamp.setActive(false);
-                pictureBox8.Image = Properties.Resources.switchoff;
+                pictureBox7.Image = switchoff;
             }
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            if (coffe.getActive() == false)
+            if (radiator.getActive() == false)
             {
-                coffe.setActive(true);
-                pictureBox9.Image = Properties.Resources.switchon;
+                radiator.setActive(true);
+                pictureBox9.Image = switchon;
             }
             else
             {
-                coffe.setActive(false);
-                pictureBox9.Image = Properties.Resources.switchoff;
+                radiator.setActive(false);
+                pictureBox9.Image = switchoff;
             }
         }
 
-        private void pictureBox10_Click(object sender, EventArgs e)
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
-            if (refrigerator.getActive() == false)
+            VisibleInfo();
+            named.Text = coffe.getNameDevice();
+            energyd.Text = Convert.ToString(coffe.getEnergy()/1000 + " watt");
+            timerd.Text = Convert.ToString(coffe.getDateTime());
+            
+            if (coffe.getActive() == true)
             {
-                refrigerator.setActive(true);
-                pictureBox10.Image = Properties.Resources.switchon;
+                actived.Text = "active";
+                
             }
             else
             {
-                refrigerator.setActive(false);
-                pictureBox10.Image = Properties.Resources.switchoff;
+                actived.Text = "turnoff"; 
             }
+
+        }
+
+        private void secondtask_MouseHover(object sender, EventArgs e)
+        {
+            InvisibleInfo();
         }
     }
 }

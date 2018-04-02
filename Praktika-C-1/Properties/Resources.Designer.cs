@@ -63,9 +63,9 @@ namespace Praktika_C_1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap switchoff {
+        internal static System.Drawing.Bitmap _switch {
             get {
-                object obj = ResourceManager.GetObject("switchoff", resourceCulture);
+                object obj = ResourceManager.GetObject("switch", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,59 @@ namespace Praktika_C_1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap switchon {
+        internal static System.Drawing.Bitmap coffee_machine {
             get {
-                object obj = ResourceManager.GetObject("switchon", resourceCulture);
+                object obj = ResourceManager.GetObject("coffee-machine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap light_bulb {
+            get {
+                object obj = ResourceManager.GetObject("light-bulb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap radiator {
+            get {
+                object obj = ResourceManager.GetObject("radiator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refrigerator {
+            get {
+                object obj = ResourceManager.GetObject("refrigerator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap switch__1_ {
+            get {
+                object obj = ResourceManager.GetObject("switch (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap water_heater {
+            get {
+                object obj = ResourceManager.GetObject("water-heater", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -9,11 +9,11 @@ namespace Praktika_C_1
     class Device
     {
         private String namedevice;
-        private int energy;
+        private double energy;
         private DateTime timeon = new DateTime();
         private Boolean active = false;
 
-        public Device(String namedevice, int energy, DateTime timeon, bool active)
+        public Device(String namedevice, double energy, DateTime timeon, bool active)
         {
             this.namedevice = namedevice;
             this.energy = energy;
@@ -30,7 +30,7 @@ namespace Praktika_C_1
             namedevice = name;
         }
 
-        public void setEnergy(int number)
+        public void setEnergy(double number)
         {
             energy = number;
         }
@@ -55,7 +55,7 @@ namespace Praktika_C_1
             return namedevice;
         }
 
-        public int getEnergy()
+        public double getEnergy()
         {
             return energy;
         }
