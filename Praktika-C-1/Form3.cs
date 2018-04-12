@@ -56,7 +56,7 @@ namespace Praktika_C_1
             heater = new Device("Water Heater", 8000, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 16, 00, 00), false);
             coffe = new Device("Coffe machine", 400, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 15, 00), false);
             refrigerator = new Device("Refrigerator", 110, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 00, 00), false);
-            coffetimer.Text = Convert.ToString(coffe.getDateTime());
+            coffetimer.Text = Convert.ToString(coffe.timeon);
         }
 
         private void ShwoLabelAndLoad()
@@ -67,16 +67,16 @@ namespace Praktika_C_1
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (coffe.getActive() == false)
+            if (coffe.active == false)
             {
-                currentnum = currentnum + coffe.getEnergy();
-                coffe.setActive(true);
+                currentnum = currentnum + coffe.energy;
+                coffe.active = true;
                 pictureBox2.Image = switchon;
             }
             else
             {
-                currentnum = currentnum - coffe.getEnergy();
-                coffe.setActive(false);
+                currentnum = currentnum - coffe.energy;
+                coffe.active = false;
                 pictureBox2.Image = switchoff;
             }
             ShwoLabelAndLoad();
@@ -84,16 +84,16 @@ namespace Praktika_C_1
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (lamp.getActive() == false)
+            if (lamp.active == false)
             {
-                currentnum = currentnum + lamp.getEnergy();
-                lamp.setActive(true);
+                currentnum = currentnum + lamp.energy;
+                lamp.active = true;
                 pictureBox3.Image = switchon;
             }
             else
             {
-                currentnum = currentnum - lamp.getEnergy();
-                lamp.setActive(false);
+                currentnum = currentnum - lamp.energy;
+                lamp.active = false;
                 pictureBox3.Image = switchoff;
             }
             ShwoLabelAndLoad();
@@ -101,16 +101,16 @@ namespace Praktika_C_1
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            if (refrigerator.getActive() == false)
+            if (refrigerator.active == false)
             {
-                currentnum = currentnum + refrigerator.getEnergy();
-                refrigerator.setActive(true);
+                currentnum = currentnum + refrigerator.energy;
+                refrigerator.active = true;
                 pictureBox5.Image = switchon;
             }
             else
             {
-                currentnum = currentnum - refrigerator.getEnergy();
-                refrigerator.setActive(false);
+                currentnum = currentnum - refrigerator.energy;
+                refrigerator.active = false;
                 pictureBox5.Image = switchoff;
             }
             ShwoLabelAndLoad();
@@ -118,16 +118,16 @@ namespace Praktika_C_1
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            if (heater.getActive() == false)
+            if (heater.active == false)
             {
-                currentnum = currentnum + heater.getEnergy();
-                heater.setActive(true);
+                currentnum = currentnum + heater.energy;
+                heater.active =true;
                 pictureBox7.Image = switchon;
             }
             else
             {
-                currentnum = currentnum - heater.getEnergy();
-                heater.setActive(false);
+                currentnum = currentnum - heater.energy;
+                heater.active = false;
                 pictureBox7.Image = switchoff;
             }
             ShwoLabelAndLoad();
@@ -135,16 +135,16 @@ namespace Praktika_C_1
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            if (radiator.getActive() == false)
+            if (radiator.active == false)
             {
-                currentnum = currentnum + radiator.getEnergy();
-                radiator.setActive(true);
+                currentnum = currentnum + radiator.energy;
+                radiator.active = true;
                 pictureBox9.Image = switchon;
             }
             else
             {
-                currentnum = currentnum - radiator.getEnergy();
-                radiator.setActive(false);
+                currentnum = currentnum - radiator.energy;
+                radiator.active = false;
                 pictureBox9.Image = switchoff;
             }
             ShwoLabelAndLoad();
@@ -153,11 +153,11 @@ namespace Praktika_C_1
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
             VisibleInfo();
-            named.Text = coffe.getNameDevice();
-            energyd.Text = Convert.ToString(coffe.getEnergy() / 1000 + " kWh");
-            timerd.Text = Convert.ToString(coffe.getDateTime());
+            named.Text = coffe.namedevice;
+            energyd.Text = Convert.ToString(coffe.energy / 1000 + " kWh");
+            timerd.Text = Convert.ToString(coffe.timeon);
 
-            if (coffe.getActive() == true)
+            if (coffe.active == true)
             {
                 actived.Text = "active";
 
@@ -172,11 +172,11 @@ namespace Praktika_C_1
         private void pictureBox4_MouseHover(object sender, EventArgs e)
         {
             VisibleInfo();
-            named.Text = lamp.getNameDevice();
-            energyd.Text = Convert.ToString(lamp.getEnergy() / 1000 + " kWh");
-            timerd.Text = Convert.ToString(lamp.getDateTime());
+            named.Text = lamp.namedevice;
+            energyd.Text = Convert.ToString(lamp.energy / 1000 + " kWh");
+            timerd.Text = Convert.ToString(lamp.timeon);
 
-            if (lamp.getActive() == true)
+            if (lamp.active == true)
             {
                 actived.Text = "active";
 
@@ -190,11 +190,11 @@ namespace Praktika_C_1
         private void pictureBox6_MouseHover(object sender, EventArgs e)
         {
             VisibleInfo();
-            named.Text = refrigerator.getNameDevice();
-            energyd.Text = Convert.ToString(refrigerator.getEnergy() / 1000 + " kWh");
-            timerd.Text = Convert.ToString(refrigerator.getDateTime());
+            named.Text = refrigerator.namedevice;
+            energyd.Text = Convert.ToString(refrigerator.energy / 1000 + " kWh");
+            timerd.Text = Convert.ToString(refrigerator.timeon);
 
-            if (refrigerator.getActive() == true)
+            if (refrigerator.active == true)
             {
                 actived.Text = "active";
 
@@ -208,11 +208,11 @@ namespace Praktika_C_1
         private void pictureBox8_MouseHover(object sender, EventArgs e)
         {
             VisibleInfo();
-            named.Text = heater.getNameDevice();
-            energyd.Text = Convert.ToString(heater.getEnergy() / 1000 + " kWh");
-            timerd.Text = Convert.ToString(heater.getDateTime());
+            named.Text = heater.namedevice;
+            energyd.Text = Convert.ToString(heater.energy / 1000 + " kWh");
+            timerd.Text = Convert.ToString(heater.timeon);
 
-            if (heater.getActive() == true)
+            if (heater.active == true)
             {
                 actived.Text = "active";
             }
@@ -225,10 +225,10 @@ namespace Praktika_C_1
         private void pictureBox10_MouseHover(object sender, EventArgs e)
         {
             VisibleInfo();
-            named.Text = radiator.getNameDevice();
-            energyd.Text = Convert.ToString(radiator.getEnergy() / 1000 + " kWh");
-            timerd.Text = Convert.ToString(radiator.getDateTime());
-            if (radiator.getActive() == true)
+            named.Text = radiator.namedevice;
+            energyd.Text = Convert.ToString(radiator.energy / 1000 + " kWh");
+            timerd.Text = Convert.ToString(radiator.timeon);
+            if (radiator.active == true)
             {
                 actived.Text = "active";
             }
