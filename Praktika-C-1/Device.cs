@@ -13,11 +13,13 @@ namespace Praktika_C_1
         private DateTime timeon = new DateTime();
         private Boolean active = false;
 
+        public DateTime Timeon { get => timeon; set => timeon = value; }
+
         public Device(String namedevice, double energy, DateTime timeon, bool active)
         {
             this.namedevice = namedevice;
             this.energy = energy;
-            this.timeon = timeon;
+            this.Timeon = timeon;
             this.active = active;
         }
 
@@ -37,7 +39,7 @@ namespace Praktika_C_1
 
         public void setTimeOn(DateTime time)
         {
-            timeon = time;
+            Timeon = time;
         }
 
         public void setActive(Boolean turn)
@@ -62,7 +64,7 @@ namespace Praktika_C_1
 
         public DateTime getDateTime()
         {
-            return timeon;
+            return Timeon;
         }
     }
 }
