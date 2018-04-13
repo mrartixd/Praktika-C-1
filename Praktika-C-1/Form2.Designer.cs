@@ -37,12 +37,13 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.descrp = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.datecl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timecl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descrpcl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.datecl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timecl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descrpcl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +89,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(177, 22);
             this.dateTimePicker1.TabIndex = 4;
-            this.dateTimePicker1.Value = new System.DateTime(2018, 3, 20, 0, 0, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2018, 4, 13, 0, 0, 0, 0);
             // 
             // dateTimePicker2
             // 
@@ -113,30 +114,14 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.datecl,
             this.timecl,
-            this.descrpcl});
+            this.descrpcl,
+            this.endtime});
             this.dataGridView1.Enabled = false;
             this.dataGridView1.Location = new System.Drawing.Point(12, 294);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(606, 339);
             this.dataGridView1.TabIndex = 7;
-            // 
-            // datecl
-            // 
-            this.datecl.HeaderText = "Date";
-            this.datecl.Name = "datecl";
-            // 
-            // timecl
-            // 
-            this.timecl.HeaderText = "Time";
-            this.timecl.Name = "timecl";
-            // 
-            // descrpcl
-            // 
-            this.descrpcl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descrpcl.HeaderText = "Description";
-            this.descrpcl.MinimumWidth = 120;
-            this.descrpcl.Name = "descrpcl";
             // 
             // label1
             // 
@@ -164,6 +149,34 @@
             this.label3.Size = new System.Drawing.Size(88, 17);
             this.label3.TabIndex = 10;
             this.label3.Text = "Name event:";
+            // 
+            // datecl
+            // 
+            this.datecl.HeaderText = "Date";
+            this.datecl.Name = "datecl";
+            this.datecl.Width = 80;
+            // 
+            // timecl
+            // 
+            this.timecl.HeaderText = "Time";
+            this.timecl.Name = "timecl";
+            this.timecl.Width = 80;
+            // 
+            // descrpcl
+            // 
+            this.descrpcl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.descrpcl.HeaderText = "Description";
+            this.descrpcl.MinimumWidth = 120;
+            this.descrpcl.Name = "descrpcl";
+            this.descrpcl.Width = 120;
+            // 
+            // endtime
+            // 
+            this.endtime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.endtime.HeaderText = "End";
+            this.endtime.MinimumWidth = 50;
+            this.endtime.Name = "endtime";
+            this.endtime.Width = 62;
             // 
             // W
             // 
@@ -202,11 +215,12 @@
         private System.Windows.Forms.TextBox descrp;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datecl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timecl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descrpcl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datecl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timecl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descrpcl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endtime;
     }
 }

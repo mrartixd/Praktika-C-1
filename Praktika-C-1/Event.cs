@@ -8,16 +8,21 @@ namespace Praktika_C_1
 {
     class Event
     {
-        public String nameevent { get => nameevent; set => nameevent = value; }
-        public DateTime dateevent { get => dateevent; set => dateevent = value; }
-        public String timer { get => timer; set => timer = value; }
+        private String n;
+        private DateTime d;
+        private String t;
+        
 
-        public Event(String name, DateTime date, String timer)
+        public Event(String nameevent, DateTime dateevent, String timeoff)
         {
-            this.nameevent = name;
-            this.dateevent = date;
-            this.timer = timer;
+            this.n = nameevent;
+            this.d = dateevent;
+            this.t = timeoff;
         }
+
+        public String nameevent { get => n; set => n = value; }
+        public DateTime dateevent { get => d; set => d = value; }
+        public String timeoff { get => t; set => t = value; }
 
     }
 }

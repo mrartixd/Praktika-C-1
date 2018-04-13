@@ -8,22 +8,27 @@ namespace Praktika_C_1
 {
     class Device
     {
+        private String device;
+        private double electr;
+        private DateTime date;
+        private bool activate;
+
         public Device(String namedevice, double energy, DateTime timeon, bool active)
         {
-            this.namedevice = namedevice;
-            this.energy = energy;
-            this.timeon = timeon;
-            this.active = active;
+            this.device = namedevice;
+            this.electr = energy;
+            this.date = timeon;
+            this.activate = active;
         }
 
         public Device()
         {
         }
 
-        public String namedevice { get => namedevice; set => namedevice = value; }
-        public double energy { get => energy; set => energy = value; }
-        public DateTime timeon { get => timeon; set => timeon = value; }
-        public Boolean active { get => active; set => active = value; }
+        public String namedevice { get => device; set => device = value; }
+        public double energy { get => electr; set => electr = value; }
+        public DateTime timeon { get => date; set => date = value; }
+        public Boolean active { get => activate; set => activate = value; }
     }
 
 }

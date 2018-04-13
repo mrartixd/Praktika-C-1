@@ -26,6 +26,7 @@ namespace Praktika_C_1
             InitializeComponent();
         }
 
+
         private void firsttask_FormClosing(object sender, FormClosingEventArgs e)
         {
             (this.Owner as Form1).first.Enabled = true;
@@ -47,29 +48,43 @@ namespace Praktika_C_1
 
         private void addtimer_Click(object sender, EventArgs e)
         {
+
             if (string.IsNullOrWhiteSpace(descrp.Text))
             {
                 MessageBox.Show("Enter Name Event.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if(dateTimePicker1.Value.Date == DateTime.Now.Date)
+            else
             {
-                if(dateTimePicker2.Value.Hour > DateTime.Now.Hour)
+                DateTime dt = dateTimePicker1.Value.Date + dateTimePicker2.Value.TimeOfDay; 
+                TimeSpan ts = dt - DateTime.Now;
+                string timeoff = string.Format("{0} day, {1} hour, {2} minute", ts.Days, ts.Hours, ts.Minutes);
+                Event ev = new Event(descrp.Text, dt, timeoff);
+
+                if (ev.dateevent.Date == DateTime.Now.Date)
                 {
-                    dataGridView1.Rows.Add(dateTimePicker1.Text, dateTimePicker2.Text, descrp.Text);
+                    if (ev.dateevent.Hour > DateTime.Now.Hour)
+                    {
+
+                        dataGridView1.Rows.Add(ev.dateevent.ToString("dd.MM.yyyy"), ev.dateevent.ToString("hh:mm"), ev.nameevent, ev.timeoff);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Check Time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else if (ev.dateevent.Date >= DateTime.Now.Date)
+                {
+
+                    dataGridView1.Rows.Add(ev.dateevent.ToString("dd.MM.yyyy"), ev.dateevent.ToString("hh:mm"), ev.nameevent, ev.timeoff);
                 }
                 else
                 {
-                    MessageBox.Show("Check Time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Check Date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
             }
-            else if(dateTimePicker1.Value.Date > DateTime.Now.Date)
-            {
-                dataGridView1.Rows.Add(dateTimePicker1.Text, dateTimePicker2.Text, descrp.Text);
-            }
-            else
-            {
-                MessageBox.Show("Check Date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
+            
 
             
         }
