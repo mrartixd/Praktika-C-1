@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -48,22 +49,24 @@
             this.named = new System.Windows.Forms.Label();
             this.energyd = new System.Windows.Forms.Label();
             this.timerd = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.loadbar = new System.Windows.Forms.ProgressBar();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.radiatortimer = new System.Windows.Forms.CheckBox();
+            this.heatertimer = new System.Windows.Forms.CheckBox();
+            this.refrigeratortimer = new System.Windows.Forms.CheckBox();
+            this.lamptimer = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.current = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.coffetimer = new System.Windows.Forms.CheckBox();
-            this.lamptimer = new System.Windows.Forms.CheckBox();
-            this.refrigeratortimer = new System.Windows.Forms.CheckBox();
-            this.heatertimer = new System.Windows.Forms.CheckBox();
-            this.radiatortimer = new System.Windows.Forms.CheckBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.minute = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -305,6 +308,17 @@
             this.timerd.TabIndex = 17;
             this.timerd.Text = "label";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(141, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 25);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "00:00:00";
+            this.label6.Visible = false;
+            // 
             // loadbar
             // 
             this.loadbar.Location = new System.Drawing.Point(819, 468);
@@ -353,6 +367,50 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(311, 206);
             this.tableLayoutPanel2.TabIndex = 14;
             // 
+            // radiatortimer
+            // 
+            this.radiatortimer.AutoSize = true;
+            this.radiatortimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radiatortimer.Location = new System.Drawing.Point(141, 173);
+            this.radiatortimer.Name = "radiatortimer";
+            this.radiatortimer.Size = new System.Drawing.Size(124, 24);
+            this.radiatortimer.TabIndex = 25;
+            this.radiatortimer.Text = "Switch timer";
+            this.radiatortimer.UseVisualStyleBackColor = true;
+            // 
+            // heatertimer
+            // 
+            this.heatertimer.AutoSize = true;
+            this.heatertimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.heatertimer.Location = new System.Drawing.Point(141, 138);
+            this.heatertimer.Name = "heatertimer";
+            this.heatertimer.Size = new System.Drawing.Size(124, 24);
+            this.heatertimer.TabIndex = 24;
+            this.heatertimer.Text = "Switch timer";
+            this.heatertimer.UseVisualStyleBackColor = true;
+            // 
+            // refrigeratortimer
+            // 
+            this.refrigeratortimer.AutoSize = true;
+            this.refrigeratortimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.refrigeratortimer.Location = new System.Drawing.Point(141, 108);
+            this.refrigeratortimer.Name = "refrigeratortimer";
+            this.refrigeratortimer.Size = new System.Drawing.Size(124, 24);
+            this.refrigeratortimer.TabIndex = 23;
+            this.refrigeratortimer.Text = "Switch timer";
+            this.refrigeratortimer.UseVisualStyleBackColor = true;
+            // 
+            // lamptimer
+            // 
+            this.lamptimer.AutoSize = true;
+            this.lamptimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lamptimer.Location = new System.Drawing.Point(141, 76);
+            this.lamptimer.Name = "lamptimer";
+            this.lamptimer.Size = new System.Drawing.Size(124, 24);
+            this.lamptimer.TabIndex = 22;
+            this.lamptimer.Text = "Switch timer";
+            this.lamptimer.UseVisualStyleBackColor = true;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -373,25 +431,15 @@
             this.current.TabIndex = 15;
             this.current.Text = "label";
             // 
-            // label6
+            // label9
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(141, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 25);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "00:00:00";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(3, 44);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 20);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Coffe";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(3, 105);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(98, 20);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Refrigerator";
             // 
             // label8
             // 
@@ -403,15 +451,15 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Lamp";
             // 
-            // label9
+            // label7
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(3, 105);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 20);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Refrigerator";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(3, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 20);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Coffe";
             // 
             // label11
             // 
@@ -444,49 +492,16 @@
             this.coffetimer.Text = "Switch timer";
             this.coffetimer.UseVisualStyleBackColor = true;
             // 
-            // lamptimer
+            // timer1
             // 
-            this.lamptimer.AutoSize = true;
-            this.lamptimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lamptimer.Location = new System.Drawing.Point(141, 76);
-            this.lamptimer.Name = "lamptimer";
-            this.lamptimer.Size = new System.Drawing.Size(124, 24);
-            this.lamptimer.TabIndex = 22;
-            this.lamptimer.Text = "Switch timer";
-            this.lamptimer.UseVisualStyleBackColor = true;
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // refrigeratortimer
+            // minute
             // 
-            this.refrigeratortimer.AutoSize = true;
-            this.refrigeratortimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.refrigeratortimer.Location = new System.Drawing.Point(141, 108);
-            this.refrigeratortimer.Name = "refrigeratortimer";
-            this.refrigeratortimer.Size = new System.Drawing.Size(124, 24);
-            this.refrigeratortimer.TabIndex = 23;
-            this.refrigeratortimer.Text = "Switch timer";
-            this.refrigeratortimer.UseVisualStyleBackColor = true;
-            // 
-            // heatertimer
-            // 
-            this.heatertimer.AutoSize = true;
-            this.heatertimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.heatertimer.Location = new System.Drawing.Point(141, 138);
-            this.heatertimer.Name = "heatertimer";
-            this.heatertimer.Size = new System.Drawing.Size(124, 24);
-            this.heatertimer.TabIndex = 24;
-            this.heatertimer.Text = "Switch timer";
-            this.heatertimer.UseVisualStyleBackColor = true;
-            // 
-            // radiatortimer
-            // 
-            this.radiatortimer.AutoSize = true;
-            this.radiatortimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radiatortimer.Location = new System.Drawing.Point(141, 173);
-            this.radiatortimer.Name = "radiatortimer";
-            this.radiatortimer.Size = new System.Drawing.Size(124, 24);
-            this.radiatortimer.TabIndex = 25;
-            this.radiatortimer.Text = "Switch timer";
-            this.radiatortimer.UseVisualStyleBackColor = true;
+            this.minute.Enabled = true;
+            this.minute.Interval = 2000;
+            this.minute.Tick += new System.EventHandler(this.minute_Tick);
             // 
             // secondtask
             // 
@@ -572,5 +587,7 @@
         private System.Windows.Forms.CheckBox refrigeratortimer;
         private System.Windows.Forms.CheckBox lamptimer;
         private System.Windows.Forms.CheckBox coffetimer;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer minute;
     }
 }

@@ -21,6 +21,9 @@ namespace Praktika_C_1
         static Bitmap switchon = Properties.Resources.switch__1_;
         static Bitmap switchoff = Properties.Resources._switch;
         static double currentnum = 0;
+        static int hh = DateTime.Now.Hour;
+        static int mm = 0;
+        static String time;
         public secondtask()
         {
             InitializeComponent();
@@ -49,6 +52,19 @@ namespace Praktika_C_1
 
         private void secondtask_Load(object sender, EventArgs e)
         {
+
+            //timer
+
+            
+
+            timer1.Tick += new EventHandler(this.timer1_Tick);
+            timer1.Start();
+            minute.Tick += new EventHandler(minute_Tick);
+            minute.Start();
+
+
+            //---
+
             current.Text = Convert.ToString(currentnum);
             InvisibleInfo();
             lamp = new Device("Lamps", 20, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 30, 00), false);
@@ -56,7 +72,22 @@ namespace Praktika_C_1
             heater = new Device("Water Heater", 8000, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 16, 00, 00), false);
             coffe = new Device("Coffe machine", 400, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 15, 00), false);
             refrigerator = new Device("Refrigerator", 110, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 00, 00), false);
-            coffetimer.Text = Convert.ToString(coffe.timeon);
+            coffetimer.Text = coffe.timeon.ToString("HH:MM");
+            lamptimer.Text = lamp.timeon.ToString("HH:MM");
+            refrigeratortimer.Text = refrigerator.timeon.ToString("HH:MM");
+            heatertimer.Text = heater.timeon.ToString("HH:MM");
+            radiatortimer.Text = radiator.timeon.ToString("HH:MM");
+            AutoON();
+        }
+
+        private void AutoON()
+        {
+            DateTime clock = Convert.ToDateTime(time);
+            if(coffetimer.Checked == true && clock == coffe.timeon )
+            {
+                coffe.active = true;
+
+            }
         }
 
         private void ShwoLabelAndLoad()
@@ -241,6 +272,46 @@ namespace Praktika_C_1
         private void secondtask_MouseHover(object sender, EventArgs e)
         {
             InvisibleInfo();
+        }
+
+        private void minute_Tick(object sender, EventArgs e)
+        {
+            mm++;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            time = "";
+            if (hh > 23 && mm>59)
+            {
+                hh = 0;
+                mm = 0;
+            }
+            else if (mm> 59)
+            {
+                mm = 00;
+                hh += 1;
+            }
+            if (hh < 10)
+            {
+                time += "0" + hh;
+            }
+            else
+            {
+                time += hh;
+            }
+            time += ":";
+
+            if (mm < 10)
+            {
+                time += "0" + mm;
+            }
+            else
+            {
+                time += mm;
+            }
+            label6.Visible = true;
+            label6.Text = time;
         }
     }
 }
