@@ -377,6 +377,7 @@
             this.radiatortimer.TabIndex = 25;
             this.radiatortimer.Text = "Switch timer";
             this.radiatortimer.UseVisualStyleBackColor = true;
+            this.radiatortimer.CheckedChanged += new System.EventHandler(this.radiatortimer_CheckedChanged);
             // 
             // heatertimer
             // 
@@ -388,6 +389,7 @@
             this.heatertimer.TabIndex = 24;
             this.heatertimer.Text = "Switch timer";
             this.heatertimer.UseVisualStyleBackColor = true;
+            this.heatertimer.CheckedChanged += new System.EventHandler(this.heatertimer_CheckedChanged);
             // 
             // refrigeratortimer
             // 
@@ -399,6 +401,7 @@
             this.refrigeratortimer.TabIndex = 23;
             this.refrigeratortimer.Text = "Switch timer";
             this.refrigeratortimer.UseVisualStyleBackColor = true;
+            this.refrigeratortimer.CheckedChanged += new System.EventHandler(this.refrigeratortimer_CheckedChanged);
             // 
             // lamptimer
             // 
@@ -410,6 +413,7 @@
             this.lamptimer.TabIndex = 22;
             this.lamptimer.Text = "Switch timer";
             this.lamptimer.UseVisualStyleBackColor = true;
+            this.lamptimer.CheckedChanged += new System.EventHandler(this.lamptimer_CheckedChanged);
             // 
             // label12
             // 
@@ -491,6 +495,7 @@
             this.coffetimer.TabIndex = 21;
             this.coffetimer.Text = "Switch timer";
             this.coffetimer.UseVisualStyleBackColor = true;
+            this.coffetimer.CheckedChanged += new System.EventHandler(this.coffetimer_CheckedChanged);
             // 
             // timer1
             // 

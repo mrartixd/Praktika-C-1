@@ -70,24 +70,49 @@ namespace Praktika_C_1
             lamp = new Device("Lamps", 20, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 30, 00), false);
             radiator = new Device("Radiator", 2000, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 14, 00, 00), false);
             heater = new Device("Water Heater", 8000, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 16, 00, 00), false);
-            coffe = new Device("Coffe machine", 400, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 15, 00), false);
+            coffe = new Device("Coffe machine", 400, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 16, 20, 00), false);
             refrigerator = new Device("Refrigerator", 110, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 00, 00), false);
-            coffetimer.Text = coffe.timeon.ToString("HH:MM");
-            lamptimer.Text = lamp.timeon.ToString("HH:MM");
-            refrigeratortimer.Text = refrigerator.timeon.ToString("HH:MM");
-            heatertimer.Text = heater.timeon.ToString("HH:MM");
-            radiatortimer.Text = radiator.timeon.ToString("HH:MM");
-            AutoON();
+            coffetimer.Text = coffe.timeon.ToString("HH:mm");
+            lamptimer.Text = lamp.timeon.ToString("HH:mm");
+            refrigeratortimer.Text = refrigerator.timeon.ToString("HH:mm");
+            heatertimer.Text = heater.timeon.ToString("HH:mm");
+            radiatortimer.Text = radiator.timeon.ToString("HH:mm");
         }
 
         private void AutoON()
         {
             DateTime clock = Convert.ToDateTime(time);
-            if(coffetimer.Checked == true && clock == coffe.timeon )
+            if(coffetimer.Checked == true && clock == coffe.timeon && coffe.active == false)
             {
+                currentnum = currentnum + coffe.energy;
                 coffe.active = true;
-
+                pictureBox2.Image = switchon;
             }
+            if(lamptimer.Checked == true && clock == lamp.timeon && lamp.active == false)
+            {
+                currentnum = currentnum + lamp.energy;
+                lamp.active = true;
+                pictureBox3.Image = switchon;
+            }
+            if(refrigeratortimer.Checked == true && clock == refrigerator.timeon && refrigerator.active == false)
+            {
+                currentnum = currentnum + refrigerator.energy;
+                refrigerator.active = true;
+                pictureBox5.Image = switchon;
+            }
+            if(heatertimer.Checked == true && clock == heater.timeon && heater.active == false)
+            {
+                currentnum = currentnum + heater.energy;
+                heater.active = true;
+                pictureBox7.Image = switchon;
+            }
+            if(radiatortimer.Checked == true && clock == radiator.timeon && radiator.active == false)
+            {
+                currentnum = currentnum + radiator.energy;
+                radiator.active = true;
+                pictureBox9.Image = switchon;
+            }
+            ShwoLabelAndLoad();
         }
 
         private void ShwoLabelAndLoad()
@@ -312,6 +337,62 @@ namespace Praktika_C_1
             }
             label6.Visible = true;
             label6.Text = time;
+            AutoON();
+        }
+
+        private void coffetimer_CheckedChanged(object sender, EventArgs e)
+        {
+            if(coffetimer.Checked == true && coffe.active == true)
+            {
+                coffe.active = false;
+                pictureBox2.Image = switchoff;
+                currentnum = currentnum - coffe.energy;
+                ShwoLabelAndLoad();
+            }
+        }
+
+        private void lamptimer_CheckedChanged(object sender, EventArgs e)
+        {
+            if(lamptimer.Checked == true && lamp.active == true)
+            {
+                lamp.active = false;
+                pictureBox3.Image = switchoff;
+                currentnum = currentnum - lamp.energy;
+                ShwoLabelAndLoad();
+            }
+        }
+
+        private void refrigeratortimer_CheckedChanged(object sender, EventArgs e)
+        {
+            if(refrigeratortimer.Checked == true && refrigerator.active == true)
+            {
+                refrigerator.active = false;
+                pictureBox5.Image = switchoff;
+                currentnum = currentnum - refrigerator.energy;
+                ShwoLabelAndLoad();
+            }
+        }
+
+        private void heatertimer_CheckedChanged(object sender, EventArgs e)
+        {
+            if(heatertimer.Checked == true && heater.active == true)
+            {
+                heater.active = false;
+                pictureBox7.Image = switchoff;
+                currentnum = currentnum - heater.energy;
+                ShwoLabelAndLoad();
+            }
+        }
+
+        private void radiatortimer_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radiatortimer.Checked == true && radiator.active == true)
+            {
+                radiator.active = false;
+                pictureBox9.Image = switchoff;
+                currentnum = currentnum - radiator.energy;
+                ShwoLabelAndLoad();
+            }
         }
     }
 }
