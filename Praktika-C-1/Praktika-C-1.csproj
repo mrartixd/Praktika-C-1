@@ -71,6 +71,7 @@
     <Compile Include="Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gasline.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -132,6 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\radiator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\fuel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
