@@ -37,11 +37,9 @@ namespace Praktika_C_1
             thirdgas = new Gasline(3, "D", 10000, false, false, 1.41);
             fourgas = new Gasline(4, "LPG", 10000, false, false, 0.69);
 
-            progressBar1.Value = Convert.ToInt32(onegas.liters);
-            progressBar2.Value = Convert.ToInt32(twogas.liters);
-            progressBar3.Value = Convert.ToInt32(thirdgas.liters);
-            progressBar4.Value = Convert.ToInt32(fourgas.liters);
-            timer1.Stop();
+            
+            
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,12 +51,13 @@ namespace Praktika_C_1
             }
             else
             {
-                onegas.liters = onegas.liters - Convert.ToInt32(onegastext.Text);
-                progressBar1.Value = Convert.ToInt32(onegas.liters);
+                onegas.liters -= Convert.ToInt32(onegastext.Text);
                 onegas.active = true;
                 onegas.pay = true;
-                timer1.Start();
-                pricetext.Text = Convert.ToString(onegas.price * Convert.ToInt32(onegastext.Text));
+                sec.Enabled = true;
+                MessageBox.Show("Do you want pay" + Convert.ToString(onegas.price * Convert.ToInt32(onegastext.Text)), "Pay, Time :" + Convert.ToString(num),
+                   MessageBoxButtons.OK, MessageBoxIcon.Question);
+
             }
         }
 
@@ -124,7 +123,6 @@ namespace Praktika_C_1
             else
             {
                 twogas.liters = twogas.liters - Convert.ToInt32(twogastext.Text);
-                progressBar2.Value = Convert.ToInt32(twogas.liters);
             }
         }
 
@@ -138,7 +136,6 @@ namespace Praktika_C_1
             else
             {
                 thirdgas.liters = thirdgas.liters - Convert.ToInt32(thirdgastext.Text);
-                progressBar3.Value = Convert.ToInt32(thirdgas.liters);
             }
         }
 
@@ -152,34 +149,38 @@ namespace Praktika_C_1
             else
             {
                 fourgas.liters = fourgas.liters - Convert.ToInt32(fourgastext.Text);
-                progressBar4.Value = Convert.ToInt32(fourgas.liters);
             }
         }
 
         
         private void timer1_Tick(object sender, EventArgs e)
-        { 
-            if(onegas.active == true && onegas.pay == false)
+        {
+
+            progressBar1.Value = Convert.ToInt32(onegas.liters);
+            progressBar2.Value = Convert.ToInt32(twogas.liters);
+            progressBar3.Value = Convert.ToInt32(thirdgas.liters);
+            progressBar4.Value = Convert.ToInt32(fourgas.liters);
+
+            if (onegas.active == true && onegas.pay == true)
             {
-                timerkassa.Text = Convert.ToString(num);
                 sec.Enabled = true;
                 button1.Enabled = false;
-                onegastext.Enabled = false;
-                
+                onegastext.Enabled = false;   
             }
         }
 
         private void sec_Tick(object sender, EventArgs e)
         {
             num--;
-            if (num == -1)
+            if (num == -1 && onegas.active == true)
             {
-                timer1.Stop();
+                sec.Enabled = false;
                 num = 60;
                 button1.Enabled = true;
                 onegastext.Enabled = true;
                 onegas.active = false;
                 onegas.pay = false;
+                onegas.liters += Convert.ToDouble(onegastext.Text);
             }
         }
     }
