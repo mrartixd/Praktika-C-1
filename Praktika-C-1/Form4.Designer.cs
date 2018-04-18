@@ -53,6 +53,26 @@
             this.timerkassa = new System.Windows.Forms.Label();
             this.sec = new System.Windows.Forms.Timer(this.components);
             this.pricetext = new System.Windows.Forms.Label();
+            this.paybutton = new System.Windows.Forms.Button();
+            this.labelkassa = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.gasline1 = new System.Windows.Forms.Label();
+            this.gasline2 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.gasline3 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.gasline4 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.gasname1 = new System.Windows.Forms.Label();
+            this.gasname2 = new System.Windows.Forms.Label();
+            this.gasname4 = new System.Windows.Forms.Label();
+            this.gasname3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.onegasimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.twogasimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thrigasimg)).BeginInit();
@@ -256,11 +276,12 @@
             // timerkassa
             // 
             this.timerkassa.AutoSize = true;
-            this.timerkassa.Location = new System.Drawing.Point(925, 414);
+            this.timerkassa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.timerkassa.Location = new System.Drawing.Point(1085, 56);
             this.timerkassa.Name = "timerkassa";
-            this.timerkassa.Size = new System.Drawing.Size(24, 17);
+            this.timerkassa.Size = new System.Drawing.Size(27, 20);
             this.timerkassa.TabIndex = 20;
-            this.timerkassa.Text = "60";
+            this.timerkassa.Text = "10";
             // 
             // sec
             // 
@@ -270,17 +291,230 @@
             // pricetext
             // 
             this.pricetext.AutoSize = true;
-            this.pricetext.Location = new System.Drawing.Point(928, 443);
+            this.pricetext.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pricetext.Location = new System.Drawing.Point(1147, 106);
             this.pricetext.Name = "pricetext";
-            this.pricetext.Size = new System.Drawing.Size(46, 17);
+            this.pricetext.Size = new System.Drawing.Size(18, 20);
             this.pricetext.TabIndex = 21;
-            this.pricetext.Text = "label5";
+            this.pricetext.Text = "0";
+            // 
+            // paybutton
+            // 
+            this.paybutton.Location = new System.Drawing.Point(1136, 173);
+            this.paybutton.Name = "paybutton";
+            this.paybutton.Size = new System.Drawing.Size(77, 32);
+            this.paybutton.TabIndex = 22;
+            this.paybutton.Text = "Pay";
+            this.paybutton.UseVisualStyleBackColor = true;
+            this.paybutton.Click += new System.EventHandler(this.paybutton_Click);
+            // 
+            // labelkassa
+            // 
+            this.labelkassa.AutoSize = true;
+            this.labelkassa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelkassa.Location = new System.Drawing.Point(1147, 541);
+            this.labelkassa.Name = "labelkassa";
+            this.labelkassa.Size = new System.Drawing.Size(18, 20);
+            this.labelkassa.TabIndex = 23;
+            this.labelkassa.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(1022, 106);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 20);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Price:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(1084, 351);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(129, 20);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Info GasStation:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(1018, 56);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 20);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Timer:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(1220, 102);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 24);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "€ ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(1220, 539);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(27, 24);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "€ ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(1022, 539);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 20);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Cashier:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(852, 388);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(76, 17);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Gasline#1:";
+            // 
+            // gasline1
+            // 
+            this.gasline1.AutoSize = true;
+            this.gasline1.Location = new System.Drawing.Point(934, 388);
+            this.gasline1.Name = "gasline1";
+            this.gasline1.Size = new System.Drawing.Size(54, 17);
+            this.gasline1.TabIndex = 31;
+            this.gasline1.Text = "label12";
+            // 
+            // gasline2
+            // 
+            this.gasline2.AutoSize = true;
+            this.gasline2.Location = new System.Drawing.Point(934, 420);
+            this.gasline2.Name = "gasline2";
+            this.gasline2.Size = new System.Drawing.Size(54, 17);
+            this.gasline2.TabIndex = 33;
+            this.gasline2.Text = "label12";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(852, 420);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 17);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "Gasline#2:";
+            // 
+            // gasline3
+            // 
+            this.gasline3.AutoSize = true;
+            this.gasline3.Location = new System.Drawing.Point(934, 452);
+            this.gasline3.Name = "gasline3";
+            this.gasline3.Size = new System.Drawing.Size(54, 17);
+            this.gasline3.TabIndex = 35;
+            this.gasline3.Text = "label12";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(852, 452);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(76, 17);
+            this.label14.TabIndex = 34;
+            this.label14.Text = "Gasline#3:";
+            // 
+            // gasline4
+            // 
+            this.gasline4.AutoSize = true;
+            this.gasline4.Location = new System.Drawing.Point(934, 485);
+            this.gasline4.Name = "gasline4";
+            this.gasline4.Size = new System.Drawing.Size(54, 17);
+            this.gasline4.TabIndex = 37;
+            this.gasline4.Text = "label12";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(852, 485);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(76, 17);
+            this.label15.TabIndex = 36;
+            this.label15.Text = "Gasline#4:";
+            // 
+            // gasname1
+            // 
+            this.gasname1.AutoSize = true;
+            this.gasname1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gasname1.Location = new System.Drawing.Point(180, 28);
+            this.gasname1.Name = "gasname1";
+            this.gasname1.Size = new System.Drawing.Size(75, 25);
+            this.gasname1.TabIndex = 38;
+            this.gasname1.Text = "label12";
+            // 
+            // gasname2
+            // 
+            this.gasname2.AutoSize = true;
+            this.gasname2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gasname2.Location = new System.Drawing.Point(615, 28);
+            this.gasname2.Name = "gasname2";
+            this.gasname2.Size = new System.Drawing.Size(75, 25);
+            this.gasname2.TabIndex = 39;
+            this.gasname2.Text = "label16";
+            // 
+            // gasname4
+            // 
+            this.gasname4.AutoSize = true;
+            this.gasname4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gasname4.Location = new System.Drawing.Point(615, 386);
+            this.gasname4.Name = "gasname4";
+            this.gasname4.Size = new System.Drawing.Size(75, 25);
+            this.gasname4.TabIndex = 40;
+            this.gasname4.Text = "label17";
+            // 
+            // gasname3
+            // 
+            this.gasname3.AutoSize = true;
+            this.gasname3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gasname3.Location = new System.Drawing.Point(180, 388);
+            this.gasname3.Name = "gasname3";
+            this.gasname3.Size = new System.Drawing.Size(75, 25);
+            this.gasname3.TabIndex = 41;
+            this.gasname3.Text = "label18";
             // 
             // thirdtask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 802);
+            this.Controls.Add(this.gasname3);
+            this.Controls.Add(this.gasname4);
+            this.Controls.Add(this.gasname2);
+            this.Controls.Add(this.gasname1);
+            this.Controls.Add(this.gasline4);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.gasline3);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.gasline2);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.gasline1);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelkassa);
+            this.Controls.Add(this.paybutton);
             this.Controls.Add(this.pricetext);
             this.Controls.Add(this.timerkassa);
             this.Controls.Add(this.progressBar4);
@@ -344,5 +578,25 @@
         private System.Windows.Forms.Label timerkassa;
         private System.Windows.Forms.Timer sec;
         private System.Windows.Forms.Label pricetext;
+        private System.Windows.Forms.Button paybutton;
+        private System.Windows.Forms.Label labelkassa;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label gasline1;
+        private System.Windows.Forms.Label gasline2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label gasline3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label gasline4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label gasname1;
+        private System.Windows.Forms.Label gasname2;
+        private System.Windows.Forms.Label gasname4;
+        private System.Windows.Forms.Label gasname3;
     }
 }

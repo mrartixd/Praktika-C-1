@@ -17,6 +17,7 @@ namespace Praktika_C_1
         static Gasline thirdgas = new Gasline();
         static Gasline fourgas = new Gasline();
         static int num = 10;
+        static double kassa = 0;
 
         public thirdtask()
         {
@@ -37,9 +38,10 @@ namespace Praktika_C_1
             thirdgas = new Gasline(3, "D", 10000, false, false, 1.41);
             fourgas = new Gasline(4, "LPG", 10000, false, false, 0.69);
 
-            
-            
-           
+            gasname1.Text = onegas.typegas;
+            gasname2.Text = twogas.typegas;
+            gasname3.Text = thirdgas.typegas;
+            gasname4.Text = fourgas.typegas;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,8 +57,7 @@ namespace Praktika_C_1
                 onegas.active = true;
                 onegas.pay = true;
                 sec.Enabled = true;
-                MessageBox.Show("Do you want pay" + Convert.ToString(onegas.price * Convert.ToInt32(onegastext.Text)), "Pay, Time :" + Convert.ToString(num),
-                   MessageBoxButtons.OK, MessageBoxIcon.Question);
+                pricetext.Text = Convert.ToString(onegas.price * Convert.ToInt32(onegastext.Text));
 
             }
         }
@@ -122,7 +123,11 @@ namespace Praktika_C_1
             }
             else
             {
-                twogas.liters = twogas.liters - Convert.ToInt32(twogastext.Text);
+                twogas.liters -= Convert.ToInt32(twogastext.Text);
+                twogas.active = true;
+                twogas.pay = true;
+                sec.Enabled = true;
+                pricetext.Text = Convert.ToString(twogas.price * Convert.ToInt32(twogastext.Text));
             }
         }
 
@@ -152,6 +157,23 @@ namespace Praktika_C_1
             }
         }
 
+        private void DisableButton()
+        {
+            if(onegas.pay == true || twogas.pay == true || thirdgas.pay == true || fourgas.pay == true)
+            {
+                button1.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+            }
+            else if (onegas.pay == false || twogas.pay == false || thirdgas.pay == false || fourgas.pay == false)
+            {
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+            }
+        }
         
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -160,12 +182,24 @@ namespace Praktika_C_1
             progressBar2.Value = Convert.ToInt32(twogas.liters);
             progressBar3.Value = Convert.ToInt32(thirdgas.liters);
             progressBar4.Value = Convert.ToInt32(fourgas.liters);
+            gasline1.Text = Convert.ToString("name" + onegas.typegas + " liters:" + onegas.liters + " active:" + onegas.active + " pay:" + onegas.pay);
+            gasline2.Text = Convert.ToString("name" + twogas.typegas + " liters:" + twogas.liters + " active:" + twogas.active + " pay:" + twogas.pay);
+            gasline3.Text = Convert.ToString("name" + thirdgas.typegas + " liters:" + thirdgas.liters + " active:" + thirdgas.active + " pay:" + thirdgas.pay);
+            gasline4.Text = Convert.ToString("name" + fourgas.typegas + " liters:" + fourgas.liters + " active:" + fourgas.active + " pay:" + fourgas.pay);
+            DisableButton();
+
 
             if (onegas.active == true && onegas.pay == true)
             {
                 sec.Enabled = true;
-                button1.Enabled = false;
-                onegastext.Enabled = false;   
+                onegastext.Enabled = false;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if(twogas.active == true && twogas.pay == true)
+            {
+                sec.Enabled = true;
+                twogastext.Enabled = false;
+                timerkassa.Text = Convert.ToString(num);
             }
         }
 
@@ -175,13 +209,48 @@ namespace Praktika_C_1
             if (num == -1 && onegas.active == true)
             {
                 sec.Enabled = false;
-                num = 60;
-                button1.Enabled = true;
                 onegastext.Enabled = true;
+                num = 10;
                 onegas.active = false;
                 onegas.pay = false;
                 onegas.liters += Convert.ToDouble(onegastext.Text);
             }
+            if( num == -1 && twogas.active == true)
+            {
+                sec.Enabled = false;
+                twogastext.Enabled = true;
+                num = 10;
+                twogas.active = false;
+                twogas.pay = false;
+                twogas.liters += Convert.ToDouble(twogastext.Text);
+            }
+        }
+        private void ForTimer()
+        {
+            sec.Enabled = false;
+            num = 10;
+            kassa += Convert.ToDouble(pricetext.Text);
+            labelkassa.Text = Convert.ToString(kassa);
+        }
+
+        private void paybutton_Click(object sender, EventArgs e)
+        {
+            if(onegastext.Enabled == true && sec.Enabled == true)
+            {
+                onegas.active = false;
+                onegas.pay = false;
+                onegastext.Enabled = true;
+                ForTimer();
+            }
+            if(twogastext.Enabled == true   )
+            {
+                twogas.active = false;
+                twogas.pay = false;
+                twogastext.Enabled = true;
+                ForTimer();
+            }
+            
+            
         }
     }
 }
