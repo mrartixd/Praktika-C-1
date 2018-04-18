@@ -38,10 +38,7 @@ namespace Praktika_C_1
             thirdgas = new Gasline(3, "D", 10000, false, false, 1.41);
             fourgas = new Gasline(4, "LPG", 10000, false, false, 0.69);
 
-            gasname1.Text = onegas.typegas;
-            gasname2.Text = twogas.typegas;
-            gasname3.Text = thirdgas.typegas;
-            gasname4.Text = fourgas.typegas;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -140,7 +137,11 @@ namespace Praktika_C_1
             }
             else
             {
-                thirdgas.liters = thirdgas.liters - Convert.ToInt32(thirdgastext.Text);
+                thirdgas.liters -= Convert.ToInt32(thirdgastext.Text);
+                thirdgas.active = true;
+                thirdgas.pay = true;
+                sec.Enabled = true;
+                pricetext.Text = Convert.ToString(thirdgas.price * Convert.ToInt32(thirdgastext.Text));
             }
         }
 
@@ -153,7 +154,11 @@ namespace Praktika_C_1
             }
             else
             {
-                fourgas.liters = fourgas.liters - Convert.ToInt32(fourgastext.Text);
+                fourgas.liters -= Convert.ToInt32(fourgastext.Text);
+                fourgas.active = true;
+                fourgas.pay = true;
+                sec.Enabled = true;
+                pricetext.Text = Convert.ToString(fourgas.price * Convert.ToInt32(fourgastext.Text));
             }
         }
 
@@ -177,15 +182,18 @@ namespace Praktika_C_1
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            gasname1.Text = onegas.typegas + " Price:"  + Convert.ToString(onegas.price);
+            gasname2.Text = twogas.typegas + " Price:" + Convert.ToString(twogas.price);
+            gasname3.Text = thirdgas.typegas + " Price:" + Convert.ToString(thirdgas.price);
+            gasname4.Text = fourgas.typegas + " Price:" + Convert.ToString(fourgas.price);
             progressBar1.Value = Convert.ToInt32(onegas.liters);
             progressBar2.Value = Convert.ToInt32(twogas.liters);
             progressBar3.Value = Convert.ToInt32(thirdgas.liters);
             progressBar4.Value = Convert.ToInt32(fourgas.liters);
-            gasline1.Text = Convert.ToString("name" + onegas.typegas + " liters:" + onegas.liters + " active:" + onegas.active + " pay:" + onegas.pay);
-            gasline2.Text = Convert.ToString("name" + twogas.typegas + " liters:" + twogas.liters + " active:" + twogas.active + " pay:" + twogas.pay);
-            gasline3.Text = Convert.ToString("name" + thirdgas.typegas + " liters:" + thirdgas.liters + " active:" + thirdgas.active + " pay:" + thirdgas.pay);
-            gasline4.Text = Convert.ToString("name" + fourgas.typegas + " liters:" + fourgas.liters + " active:" + fourgas.active + " pay:" + fourgas.pay);
+            gasline1.Text = Convert.ToString(onegas.typegas + ": liters:" + onegas.liters + ", active:" + onegas.active + ", pay:" + onegas.pay);
+            gasline2.Text = Convert.ToString(twogas.typegas + ": liters:" + twogas.liters + ", active:" + twogas.active + ", pay:" + twogas.pay);
+            gasline3.Text = Convert.ToString(thirdgas.typegas + ": liters:" + thirdgas.liters + ", active:" + thirdgas.active + ", pay:" + thirdgas.pay);
+            gasline4.Text = Convert.ToString(fourgas.typegas + ": liters:" + fourgas.liters + ", active:" + fourgas.active + ", pay:" + fourgas.pay);
             DisableButton();
 
 
@@ -224,6 +232,24 @@ namespace Praktika_C_1
                 twogas.pay = false;
                 twogas.liters += Convert.ToDouble(twogastext.Text);
             }
+            if(num == -1 && thirdgas.active == true)
+            {
+                sec.Enabled = false;
+                thirdgastext.Enabled = false;
+                num = 10;
+                thirdgas.active = false;
+                thirdgas.pay = false;
+                thirdgas.liters += Convert.ToDouble(thirdgastext.Text);
+            }
+            if (num == -1 && fourgas.active == true)
+            {
+                sec.Enabled = false;
+                fourgastext.Enabled = false;
+                num = 10;
+                fourgas.active = false;
+                fourgas.pay = false;
+                fourgas.liters += Convert.ToDouble(fourgastext.Text);
+            }
         }
         private void ForTimer()
         {
@@ -231,22 +257,37 @@ namespace Praktika_C_1
             num = 10;
             kassa += Convert.ToDouble(pricetext.Text);
             labelkassa.Text = Convert.ToString(kassa);
+            pricetext.Text = "0";
         }
 
         private void paybutton_Click(object sender, EventArgs e)
         {
-            if(onegastext.Enabled == true && sec.Enabled == true)
+            if(onegastext.Enabled == false)
             {
                 onegas.active = false;
                 onegas.pay = false;
                 onegastext.Enabled = true;
                 ForTimer();
             }
-            if(twogastext.Enabled == true   )
+            if(twogastext.Enabled == false)
             {
                 twogas.active = false;
                 twogas.pay = false;
                 twogastext.Enabled = true;
+                ForTimer();
+            }
+            if(thirdgastext.Enabled == false)
+            {
+                thirdgas.active = false;
+                thirdgas.pay = false;
+                thirdgastext.Enabled = true;
+                ForTimer();
+            }
+            if(fourgastext.Enabled == false)
+            {
+                fourgas.active = false;
+                fourgas.pay = false;
+                fourgastext.Enabled = true;
                 ForTimer();
             }
             
