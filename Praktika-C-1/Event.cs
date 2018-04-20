@@ -20,6 +20,11 @@ namespace Praktika_C_1
             this.t = timeoff;
         }
 
+        public Event()
+        {
+
+        }
+
         public String nameevent { get => n; set => n = value; }
         public DateTime dateevent { get => d; set => d = value; }
         public String timeoff { get => t; set => t = value; }

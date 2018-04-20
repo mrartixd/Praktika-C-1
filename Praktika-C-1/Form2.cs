@@ -20,12 +20,14 @@ namespace Praktika_C_1
 {
     public partial class W : Form
     {
-   
         public W()
         {
             InitializeComponent();
         }
 
+        static Event ev = new Event();
+        static DateTime dt;
+        static string timeoff;
 
         private void firsttask_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -37,11 +39,13 @@ namespace Praktika_C_1
             timer1.Start();
             clock.Text = DateTime.Now.ToLongTimeString();
             datelabel.Text = DateTime.Now.ToLongDateString();
+            ev = new Event(descrp.Text, dt, timeoff);
 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
             clock.Text = DateTime.Now.ToLongTimeString();
             timer1.Start(); 
         }
@@ -55,10 +59,10 @@ namespace Praktika_C_1
             }
             else
             {
-                DateTime dt = dateTimePicker1.Value.Date + dateTimePicker2.Value.TimeOfDay; 
+                dt = dateTimePicker1.Value.Date + dateTimePicker2.Value.TimeOfDay; 
                 TimeSpan ts = dt - DateTime.Now;
-                string timeoff = string.Format("{0} day, {1} hour, {2} minute", ts.Days, ts.Hours, ts.Minutes);
-                Event ev = new Event(descrp.Text, dt, timeoff);
+                timeoff = string.Format("{0} day, {1} hour, {2} minute", ts.Days, ts.Hours, ts.Minutes);
+                
 
                 if (ev.dateevent.Date == DateTime.Now.Date)
                 {

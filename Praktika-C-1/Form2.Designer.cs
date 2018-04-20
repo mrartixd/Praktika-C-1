@@ -37,13 +37,13 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.descrp = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.datecl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timecl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descrpcl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,33 +123,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(606, 339);
             this.dataGridView1.TabIndex = 7;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 17);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Date event:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(362, 119);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 17);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Time event:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(72, 175);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 17);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Name event:";
-            // 
             // datecl
             // 
             this.datecl.HeaderText = "Date";
@@ -177,6 +150,33 @@
             this.endtime.MinimumWidth = 50;
             this.endtime.Name = "endtime";
             this.endtime.Width = 62;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(79, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 17);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Date event:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(362, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 17);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Time event:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(72, 175);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 17);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Name event:";
             // 
             // W
             // 

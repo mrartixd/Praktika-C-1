@@ -18,6 +18,7 @@ namespace Praktika_C_1
         static Gasline fourgas = new Gasline();
         static int num = 10;
         static double kassa = 0;
+        static double litersnow = 0;
 
         public thirdtask()
         {
@@ -41,23 +42,7 @@ namespace Praktika_C_1
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(onegastext.Text) || onegas.liters < 0 || Convert.ToInt32(onegastext.Text) > onegas.liters) 
-            {
-                MessageBox.Show("Fuel out of range", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                onegas.liters -= Convert.ToInt32(onegastext.Text);
-                onegas.active = true;
-                onegas.pay = true;
-                sec.Enabled = true;
-                pricetext.Text = Convert.ToString(onegas.price * Convert.ToInt32(onegastext.Text));
-
-            }
-        }
+       
 
         private void onegastext_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -111,9 +96,46 @@ namespace Praktika_C_1
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(onegastext.Text) || onegas.liters < 0 || Convert.ToInt32(onegastext.Text) > onegas.liters)
+            {
+                MessageBox.Show("Fuel out of range", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                onegas.liters -= Convert.ToInt32(onegastext.Text);
+                onegas.active = true;
+                onegas.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                button11.Enabled = false;
+                if (radioButton1.Checked == true)
+                {
+                    pricetext.Text = Convert.ToString(thirdgas.price * Convert.ToInt32(onegastext.Text));
+                }
+                else if(radioButton2.Checked == true)
+                {
+                    pricetext.Text = Convert.ToString(onegas.price * Convert.ToInt32(onegastext.Text));
+                }
+                else if (radioButton3.Checked == true)
+                {
+                    pricetext.Text = Convert.ToString(twogas.price * Convert.ToInt32(onegastext.Text));
+                }
+                else if (radioButton4.Checked == true)
+                {
+                    pricetext.Text = Convert.ToString(fourgas.price * Convert.ToInt32(onegastext.Text));
+                }
+                
+
+
+            }
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(twogastext.Text) || twogas.liters < 0 || Convert.ToInt32(twogastext.Text) > twogas.liters)
+            if (string.IsNullOrWhiteSpace(onegastext.Text) || twogas.liters < 0 || Convert.ToInt32(twogastext.Text) > twogas.liters)
             {
                 MessageBox.Show("Fuel out of range", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -124,42 +146,38 @@ namespace Praktika_C_1
                 twogas.active = true;
                 twogas.pay = true;
                 sec.Enabled = true;
-                pricetext.Text = Convert.ToString(twogas.price * Convert.ToInt32(twogastext.Text));
+                timerlitr.Enabled = false;
+                button9.Enabled = false;
+                if (radioButton8.Checked == true)
+                {
+                    pricetext.Text = Convert.ToString(thirdgas.price * Convert.ToInt32(twogastext.Text));
+                }
+                else if (radioButton7.Checked == true)
+                {
+                    pricetext.Text = Convert.ToString(onegas.price * Convert.ToInt32(twogastext.Text));
+                }
+                else if (radioButton6.Checked == true)
+                {
+                    pricetext.Text = Convert.ToString(twogas.price * Convert.ToInt32(twogastext.Text));
+                }
+                else if (radioButton5.Checked == true)
+                {
+                    pricetext.Text = Convert.ToString(fourgas.price * Convert.ToInt32(twogastext.Text));
+                }
+
+
+
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(thirdgastext.Text) || thirdgas.liters < 0 || Convert.ToInt32(thirdgastext.Text) > thirdgas.liters)
-            {
-                MessageBox.Show("Fuel out of range", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                thirdgas.liters -= Convert.ToInt32(thirdgastext.Text);
-                thirdgas.active = true;
-                thirdgas.pay = true;
-                sec.Enabled = true;
-                pricetext.Text = Convert.ToString(thirdgas.price * Convert.ToInt32(thirdgastext.Text));
-            }
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(fourgastext.Text) || fourgas.liters < 0 || Convert.ToInt32(fourgastext.Text) > fourgas.liters)
-            {
-                MessageBox.Show("Fuel out of range", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                fourgas.liters -= Convert.ToInt32(fourgastext.Text);
-                fourgas.active = true;
-                fourgas.pay = true;
-                sec.Enabled = true;
-                pricetext.Text = Convert.ToString(fourgas.price * Convert.ToInt32(fourgastext.Text));
-            }
+           
         }
 
         private void DisableButton()
@@ -182,31 +200,19 @@ namespace Praktika_C_1
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            gasname1.Text = onegas.typegas + " Price:"  + Convert.ToString(onegas.price);
-            gasname2.Text = twogas.typegas + " Price:" + Convert.ToString(twogas.price);
-            gasname3.Text = thirdgas.typegas + " Price:" + Convert.ToString(thirdgas.price);
-            gasname4.Text = fourgas.typegas + " Price:" + Convert.ToString(fourgas.price);
-            progressBar1.Value = Convert.ToInt32(onegas.liters);
-            progressBar2.Value = Convert.ToInt32(twogas.liters);
-            progressBar3.Value = Convert.ToInt32(thirdgas.liters);
-            progressBar4.Value = Convert.ToInt32(fourgas.liters);
-            gasline1.Text = Convert.ToString(onegas.typegas + ": liters:" + onegas.liters + ", active:" + onegas.active + ", pay:" + onegas.pay);
-            gasline2.Text = Convert.ToString(twogas.typegas + ": liters:" + twogas.liters + ", active:" + twogas.active + ", pay:" + twogas.pay);
-            gasline3.Text = Convert.ToString(thirdgas.typegas + ": liters:" + thirdgas.liters + ", active:" + thirdgas.active + ", pay:" + thirdgas.pay);
-            gasline4.Text = Convert.ToString(fourgas.typegas + ": liters:" + fourgas.liters + ", active:" + fourgas.active + ", pay:" + fourgas.pay);
-            DisableButton();
-
+           
+            gasline1.Text = Convert.ToString(onegas.typegas + ": liters:" + onegas.liters + ", Price: "+ onegas.price);
+            gasline2.Text = Convert.ToString(twogas.typegas + ": liters:" + twogas.liters + ", Price: " + twogas.price);
+            gasline3.Text = Convert.ToString(thirdgas.typegas + ": liters:" + thirdgas.liters + ", Price: " + thirdgas.price);
+            gasline4.Text = Convert.ToString(fourgas.typegas + ": liters:" + fourgas.liters + ", Price: " + fourgas.price);
+            //DisableButton();
+            onegastext.Text = Convert.ToString(litersnow);
 
             if (onegas.active == true && onegas.pay == true)
             {
                 sec.Enabled = true;
-                onegastext.Enabled = false;
-                timerkassa.Text = Convert.ToString(num);
-            }
-            if(twogas.active == true && twogas.pay == true)
-            {
-                sec.Enabled = true;
-                twogastext.Enabled = false;
+                
+                
                 timerkassa.Text = Convert.ToString(num);
             }
         }
@@ -217,39 +223,13 @@ namespace Praktika_C_1
             if (num == -1 && onegas.active == true)
             {
                 sec.Enabled = false;
-                onegastext.Enabled = true;
+               
                 num = 10;
                 onegas.active = false;
                 onegas.pay = false;
                 onegas.liters += Convert.ToDouble(onegastext.Text);
             }
-            if( num == -1 && twogas.active == true)
-            {
-                sec.Enabled = false;
-                twogastext.Enabled = true;
-                num = 10;
-                twogas.active = false;
-                twogas.pay = false;
-                twogas.liters += Convert.ToDouble(twogastext.Text);
-            }
-            if(num == -1 && thirdgas.active == true)
-            {
-                sec.Enabled = false;
-                thirdgastext.Enabled = false;
-                num = 10;
-                thirdgas.active = false;
-                thirdgas.pay = false;
-                thirdgas.liters += Convert.ToDouble(thirdgastext.Text);
-            }
-            if (num == -1 && fourgas.active == true)
-            {
-                sec.Enabled = false;
-                fourgastext.Enabled = false;
-                num = 10;
-                fourgas.active = false;
-                fourgas.pay = false;
-                fourgas.liters += Convert.ToDouble(fourgastext.Text);
-            }
+           
         }
         private void ForTimer()
         {
@@ -266,30 +246,11 @@ namespace Praktika_C_1
             {
                 onegas.active = false;
                 onegas.pay = false;
-                onegastext.Enabled = true;
                 ForTimer();
+                litersnow = 0;
+                button11.Enabled = true;
             }
-            if(twogastext.Enabled == false)
-            {
-                twogas.active = false;
-                twogas.pay = false;
-                twogastext.Enabled = true;
-                ForTimer();
-            }
-            if(thirdgastext.Enabled == false)
-            {
-                thirdgas.active = false;
-                thirdgas.pay = false;
-                thirdgastext.Enabled = true;
-                ForTimer();
-            }
-            if(fourgastext.Enabled == false)
-            {
-                fourgas.active = false;
-                fourgas.pay = false;
-                fourgastext.Enabled = true;
-                ForTimer();
-            }
+            
             
             
         }
@@ -363,6 +324,50 @@ namespace Praktika_C_1
                 {
                     e.Handled = true;
                 }
+            }
+        }
+
+        private void timerlitr_Tick(object sender, EventArgs e)
+        {
+            litersnow++;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            timerlitr.Enabled = true;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            timerlitr.Enabled = false;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked == true || radioButton2.Checked == true || radioButton3.Checked == true || radioButton4.Checked == true)
+            {
+                timerlitr.Enabled = true;
+                button1.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Choose type of fuel", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+            if (radioButton8.Checked == true || radioButton7.Checked == true || radioButton6.Checked == true || radioButton5.Checked == true)
+            {
+                timerlitr.Enabled = true;
+                button2.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Choose type of fuel", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
