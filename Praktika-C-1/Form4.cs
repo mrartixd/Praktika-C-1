@@ -293,5 +293,77 @@ namespace Praktika_C_1
             
             
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+
+                if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            onegas.price = Convert.ToDouble(textBox1.Text);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            twogas.price = Convert.ToDouble(textBox2.Text);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            thirdgas.price = Convert.ToDouble(textBox3.Text);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            fourgas.price = Convert.ToDouble(textBox4.Text);
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+
+                if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+
+                if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+
+                if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }

@@ -72,11 +72,8 @@ namespace Praktika_C_1
             heater = new Device("Water Heater", 8000, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 16, 00, 00), false);
             coffe = new Device("Coffe machine", 400, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 16, 20, 00), false);
             refrigerator = new Device("Refrigerator", 110, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 00, 00), false);
-            coffetimer.Text = coffe.timeon.ToString("HH:mm");
-            lamptimer.Text = lamp.timeon.ToString("HH:mm");
-            refrigeratortimer.Text = refrigerator.timeon.ToString("HH:mm");
-            heatertimer.Text = heater.timeon.ToString("HH:mm");
-            radiatortimer.Text = radiator.timeon.ToString("HH:mm");
+           
+            
         }
 
         private void AutoON()
@@ -301,11 +298,16 @@ namespace Praktika_C_1
 
         private void minute_Tick(object sender, EventArgs e)
         {
-            mm++;
+            mm ++;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            coffetimer.Text = coffe.timeon.ToString("HH:mm");
+            lamptimer.Text = lamp.timeon.ToString("HH:mm");
+            refrigeratortimer.Text = refrigerator.timeon.ToString("HH:mm");
+            heatertimer.Text = heater.timeon.ToString("HH:mm");
+            radiatortimer.Text = radiator.timeon.ToString("HH:mm");
             time = "";
             if (hh > 23 && mm>59)
             {
@@ -394,5 +396,35 @@ namespace Praktika_C_1
                 ShwoLabelAndLoad();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            coffe.timeon = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(comboBox1.SelectedItem.ToString()), Convert.ToInt32(comboBox2.SelectedItem.ToString()), 00);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            lamp.timeon = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(comboBox4.SelectedItem.ToString()), Convert.ToInt32(comboBox3.SelectedItem.ToString()), 00);
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            refrigerator.timeon = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(comboBox6.SelectedItem.ToString()), Convert.ToInt32(comboBox5.SelectedItem.ToString()), 00);
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            heater.timeon = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(comboBox8.SelectedItem.ToString()), Convert.ToInt32(comboBox7.SelectedItem.ToString()), 00);
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            radiator.timeon = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(comboBox10.SelectedItem.ToString()), Convert.ToInt32(comboBox9.SelectedItem.ToString()), 00);
+
+        }
     }
+    
 }

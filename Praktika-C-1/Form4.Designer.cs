@@ -73,6 +73,14 @@
             this.gasname2 = new System.Windows.Forms.Label();
             this.gasname4 = new System.Windows.Forms.Label();
             this.gasname3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.onegasimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.twogasimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thrigasimg)).BeginInit();
@@ -490,11 +498,91 @@
             this.gasname3.TabIndex = 41;
             this.gasname3.Text = "label18";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1224, 386);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(36, 22);
+            this.textBox1.TabIndex = 42;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1266, 386);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(21, 23);
+            this.button5.TabIndex = 43;
+            this.button5.Text = "*\r\n";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(1266, 420);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(21, 23);
+            this.button6.TabIndex = 45;
+            this.button6.Text = "*\r\n";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(1224, 420);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(36, 22);
+            this.textBox2.TabIndex = 44;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(1266, 452);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(21, 23);
+            this.button7.TabIndex = 47;
+            this.button7.Text = "*\r\n";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(1224, 452);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(36, 22);
+            this.textBox3.TabIndex = 46;
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(1266, 485);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(21, 23);
+            this.button8.TabIndex = 49;
+            this.button8.Text = "*\r\n";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(1224, 485);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(36, 22);
+            this.textBox4.TabIndex = 48;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
+            // 
             // thirdtask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 802);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.gasname3);
             this.Controls.Add(this.gasname4);
             this.Controls.Add(this.gasname2);
@@ -598,5 +686,13 @@
         private System.Windows.Forms.Label gasname2;
         private System.Windows.Forms.Label gasname4;
         private System.Windows.Forms.Label gasname3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
