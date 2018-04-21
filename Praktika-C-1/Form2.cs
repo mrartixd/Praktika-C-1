@@ -39,7 +39,7 @@ namespace Praktika_C_1
             timer1.Start();
             clock.Text = DateTime.Now.ToLongTimeString();
             datelabel.Text = DateTime.Now.ToLongDateString();
-            ev = new Event(descrp.Text, dt, timeoff);
+           
 
         }
 
@@ -62,7 +62,7 @@ namespace Praktika_C_1
                 dt = dateTimePicker1.Value.Date + dateTimePicker2.Value.TimeOfDay; 
                 TimeSpan ts = dt - DateTime.Now;
                 timeoff = string.Format("{0} day, {1} hour, {2} minute", ts.Days, ts.Hours, ts.Minutes);
-                
+                ev = new Event(descrp.Text, dt, timeoff);
 
                 if (ev.dateevent.Date == DateTime.Now.Date)
                 {
@@ -86,11 +86,7 @@ namespace Praktika_C_1
                     MessageBox.Show("Check Date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-            }
-            
-            
-
-            
+            } 
         }
     }
 }
