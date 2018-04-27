@@ -20,10 +20,14 @@ namespace Praktika_C_1
         static TypeGas bens98 = new TypeGas();
         static TypeGas desiel = new TypeGas();
         static TypeGas lpg = new TypeGas();
-        static List<TypeGas> listtype;
+        static List<TypeGas> listtype = new List<TypeGas>();
         static int num = 10;
         static double kassa = 0;
-        static double litersnow = 0;
+        static double litersnow1 = 0;
+        static double litersnow2 = 0;
+        static double litersnow3 = 0;
+        static double litersnow4 = 0;
+
 
         public thirdtask()
         {
@@ -55,103 +59,94 @@ namespace Praktika_C_1
 
             
         }
-
-       
-
-        private void onegastext_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-
-                if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void twogastext_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-
-                if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void thirdgastext_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-
-                if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void fourgastext_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-
-                if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(onegastext.Text) || onegas.liters < 0 || Convert.ToInt32(onegastext.Text) > onegas.liters)
-            {
-                MessageBox.Show("Fuel out of range", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                onegas.liters -= Convert.ToInt32(onegastext.Text);
-                onegas.active = true;
-                onegas.pay = true;
-                sec.Enabled = true;
-                timerlitr.Enabled = false;
-                button11.Enabled = false;
                 if (radioButton1.Checked == true)
                 {
-                    pricetext.Text = Convert.ToString(thirdgas.price * Convert.ToInt32(onegastext.Text));
+                    pricetext.Text = Convert.ToString(desiel.price * Convert.ToInt32(onegastext.Text));
+                    
+                    desiel.pay = true;
+                    sec.Enabled = true;
+                    timerlitr.Enabled = false;
+                    
                 }
                 else if(radioButton2.Checked == true)
                 {
-                    pricetext.Text = Convert.ToString(onegas.price * Convert.ToInt32(onegastext.Text));
+                    pricetext.Text = Convert.ToString(bens98.price * Convert.ToInt32(onegastext.Text));
+                    
+                   
+                    bens98.pay = true;
+                    sec.Enabled = true;
+                    timerlitr.Enabled = false;
+                  
                 }
                 else if (radioButton3.Checked == true)
                 {
-                    pricetext.Text = Convert.ToString(twogas.price * Convert.ToInt32(onegastext.Text));
+                    pricetext.Text = Convert.ToString(bens95.price * Convert.ToInt32(onegastext.Text));
+                   
+                    
+                    bens95.pay = true;
+                    sec.Enabled = true;
+                    timerlitr.Enabled = false;
+                  
                 }
                 else if (radioButton4.Checked == true)
                 {
-                    pricetext.Text = Convert.ToString(fourgas.price * Convert.ToInt32(onegastext.Text));
-                }
-                
-
-
+                    pricetext.Text = Convert.ToString(lpg.price * Convert.ToInt32(onegastext.Text));
+                    
+                    
+                    lpg.pay = true;
+                    sec.Enabled = true;
+                    timerlitr.Enabled = false;
+                 
             }
+                
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
 
-           
+            if (radioButton8.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(desiel.price * Convert.ToInt32(twogastext.Text));
+
+
+                desiel.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+            else if (radioButton7.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(bens98.price * Convert.ToInt32(twogastext.Text));
+
+
+                bens98.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+            else if (radioButton6.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(bens95.price * Convert.ToInt32(twogastext.Text));
+
+
+                bens95.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+            else if (radioButton5.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(lpg.price * Convert.ToInt32(twogastext.Text));
+
+
+                lpg.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -173,11 +168,92 @@ namespace Praktika_C_1
             gasline2.Text = Convert.ToString(bens98.name + ": liters:" + bens98.liters + ", Price: " + bens98.price);
             gasline3.Text = Convert.ToString(desiel.name + ": liters:" + desiel.liters + ", Price: " + desiel.price);
             gasline4.Text = Convert.ToString(lpg.name + ": liters:" + lpg.liters + ", Price: " + lpg.price);
-            onegastext.Text = Convert.ToString(litersnow);
+            onegastext.Text = Convert.ToString(litersnow1);
+            twogastext.Text = Convert.ToString(litersnow2);
+            thirdgastext.Text = Convert.ToString(litersnow3);
+            fourgastext.Text = Convert.ToString(litersnow4);
 
 
             //Check
-            if (onegas.active == true)
+            if (onegas.active == true && desiel.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (onegas.active == true && bens95.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (onegas.active == true && bens98.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (onegas.active == true && lpg.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            //
+            if (twogas.active == true && desiel.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (twogas.active == true && bens95.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (twogas.active == true && bens98.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (twogas.active == true && lpg.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            //
+            if (thirdgas.active == true && desiel.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (thirdgas.active == true && bens95.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (thirdgas.active == true && bens98.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (thirdgas.active == true && lpg.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            //
+            if (fourgas.active == true && desiel.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (fourgas.active == true && bens95.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (fourgas.active == true && bens98.pay == true)
+            {
+                sec.Enabled = true;
+                timerkassa.Text = Convert.ToString(num);
+            }
+            if (fourgas.active == true && lpg.pay == true)
             {
                 sec.Enabled = true;
                 timerkassa.Text = Convert.ToString(num);
@@ -186,49 +262,49 @@ namespace Praktika_C_1
 
         private void CheckGasTypeTrue(TextBox textBox)
         {
-            if(radioButton1.Checked == true || radioButton8.Checked == true)
+            if(radioButton1.Checked == true || radioButton8.Checked == true || radioButton12.Checked == true || radioButton16.Checked == true)
             {
                 desiel.pay = false;
-                desiel.liters += Convert.ToDouble(textBox.Text);
+                
             }
-            if(radioButton2.Checked == true || radioButton7.Checked == true)
+            if(radioButton2.Checked == true || radioButton7.Checked == true || radioButton11.Checked == true || radioButton15.Checked == true)
             {
                 bens98.pay = false;
-                bens98.liters += Convert.ToDouble(textBox.Text);
+                
             }
-            if(radioButton3.Checked == true || radioButton6.Checked == true)
+            if(radioButton3.Checked == true || radioButton6.Checked == true || radioButton10.Checked == true || radioButton14.Checked == true)
             {
                 bens95.pay = false;
-                bens95.liters += Convert.ToDouble(textBox.Text);
+                
             }
-            if(radioButton4.Checked == true || radioButton5.Checked == true)
+            if(radioButton4.Checked == true || radioButton5.Checked == true || radioButton9.Checked == true || radioButton13.Checked == true)
             {
                 lpg.pay = false;
-                lpg.liters += Convert.ToDouble(textBox.Text);
+                
             }
         }
 
         private void CheckGasTypeFalse(TextBox textBox)
         {
-            if (radioButton1.Checked == false || radioButton8.Checked == false)
+            if (radioButton1.Checked == false || radioButton8.Checked == false || radioButton12.Checked == false  || radioButton16.Checked == false)
             {
                 desiel.pay = true;
-                desiel.liters += Convert.ToDouble(textBox.Text);
+                
             }
-            if (radioButton2.Checked == true || radioButton7.Checked == true)
+            if (radioButton2.Checked == true || radioButton7.Checked == true || radioButton11.Checked == false || radioButton15.Checked == false)
             {
                 bens98.pay = false;
-                bens98.liters += Convert.ToDouble(textBox.Text);
+                
             }
-            if (radioButton3.Checked == true || radioButton6.Checked == true)
+            if (radioButton3.Checked == true || radioButton6.Checked == true || radioButton10.Checked == false || radioButton14.Checked == false)
             {
                 bens95.pay = false;
-                bens95.liters += Convert.ToDouble(textBox.Text);
+                
             }
-            if (radioButton4.Checked == true || radioButton5.Checked == true)
+            if (radioButton4.Checked == true || radioButton5.Checked == true || radioButton9.Checked == false || radioButton13.Checked == false)
             {
                 lpg.pay = false;
-                lpg.liters += Convert.ToDouble(textBox.Text);
+                
             }
         }
 
@@ -240,9 +316,51 @@ namespace Praktika_C_1
                 sec.Enabled = false;
                 num = 10;
                 onegas.active = false;
+                litersnow1 = 0;
                 CheckGasTypeTrue(onegastext);
+                button1.Enabled = false;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
             }
-           
+            if (num == -1 && twogas.active == true)
+            {
+                sec.Enabled = false;
+                num = 10;
+                twogas.active = false;
+                litersnow2 = 0;
+                CheckGasTypeTrue(twogastext);
+                button2.Enabled = false;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
+            }
+            if (num == -1 && thirdgas.active == true)
+            {
+                sec.Enabled = false;
+                num = 10;
+                thirdgas.active = false;
+                litersnow3 = 0;
+                CheckGasTypeTrue(thirdgastext);
+                button4.Enabled = false;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
+
+            }
+            if (num == -1 && fourgas.active == true)
+            {
+                sec.Enabled = false;
+                num = 10;
+                fourgas.active = false;
+                litersnow4 = 0;
+                CheckGasTypeTrue(fourgastext);
+                button13.Enabled = false;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
+            }
+
         }
 
 
@@ -250,24 +368,211 @@ namespace Praktika_C_1
         {
             sec.Enabled = false;
             num = 10;
-            kassa += Convert.ToDouble(pricetext.Text);
+            
             labelkassa.Text = Convert.ToString(kassa);
             pricetext.Text = "0";
         }
 
         private void paybutton_Click(object sender, EventArgs e)
         {
-            if(onegastext.Enabled == false)
+            if(onegas.active == true && desiel.pay == true)
             {
+                desiel.liters -= Convert.ToInt32(onegastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
                 onegas.active = false;
-                //onegas.pay = false;
+                desiel.pay = false;
                 ForTimer();
-                litersnow = 0;
-                button11.Enabled = true;
+                litersnow1 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button1.Enabled = false;
             }
-            
-            
-            
+            if(onegas.active == true && bens98.pay == true)
+            {
+                bens98.liters -= Convert.ToInt32(onegastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                onegas.active = false;
+                bens98.pay = false;
+                ForTimer();
+                litersnow1 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button1.Enabled = false;
+            }
+            if (onegas.active == true && bens95.pay == true)
+            {
+                bens95.liters -= Convert.ToInt32(onegastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                onegas.active = false;
+                bens95.pay = false;
+                ForTimer();
+                litersnow1 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button1.Enabled = false;
+            }
+            if (onegas.active == true && lpg.pay == true)
+            {
+                lpg.liters -= Convert.ToInt32(onegastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                onegas.active = false;
+                lpg.pay = false;
+                ForTimer();
+                litersnow1 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button1.Enabled = false;
+            }
+            //
+            if (twogas.active == true && desiel.pay == true)
+            {
+                desiel.liters -= Convert.ToInt32(twogastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                twogas.active = false;
+                desiel.pay = false;
+                ForTimer();
+                litersnow2 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button2.Enabled = false;
+            }
+            if (twogas.active == true && bens98.pay == true)
+            {
+                bens98.liters -= Convert.ToInt32(twogastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                twogas.active = false;
+                bens98.pay = false;
+                ForTimer();
+                litersnow2 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button2.Enabled = false;
+            }
+            if (twogas.active == true && bens95.pay == true)
+            {
+                bens95.liters -= Convert.ToInt32(twogastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                twogas.active = false;
+                bens95.pay = false;
+                ForTimer();
+                litersnow2 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button2.Enabled = false;
+            }
+            if (twogas.active == true && lpg.pay == true)
+            {
+                lpg.liters -= Convert.ToInt32(twogastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                twogas.active = false;
+                lpg.pay = false;
+                ForTimer();
+                litersnow2 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button2.Enabled = false;
+            }
+            //
+            if (thirdgas.active == true && desiel.pay == true)
+            {
+                desiel.liters -= Convert.ToInt32(thirdgastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                thirdgas.active = false;
+                desiel.pay = false;
+                ForTimer();
+                litersnow3 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button4.Enabled = false;
+            }
+            if (thirdgas.active == true && bens98.pay == true)
+            {
+                bens98.liters -= Convert.ToInt32(thirdgastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                thirdgas.active = false;
+                bens98.pay = false;
+                ForTimer();
+                litersnow3 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button4.Enabled = false;
+            }
+            if (thirdgas.active == true && bens95.pay == true)
+            {
+                bens95.liters -= Convert.ToInt32(thirdgastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                thirdgas.active = false;
+                bens95.pay = false;
+                ForTimer();
+                litersnow3 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button4.Enabled = false;
+            }
+            if (thirdgas.active == true && lpg.pay == true)
+            {
+                lpg.liters -= Convert.ToInt32(thirdgastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                thirdgas.active = false;
+                lpg.pay = false;
+                ForTimer();
+                litersnow3 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button4.Enabled = false;
+            }
+            //
+            if (fourgas.active == true && desiel.pay == true)
+            {
+                desiel.liters -= Convert.ToInt32(fourgastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                fourgas.active = false;
+                desiel.pay = false;
+                ForTimer();
+                litersnow4 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button13.Enabled = false;
+            }
+            if (fourgas.active == true && bens98.pay == true)
+            {
+                bens98.liters -= Convert.ToInt32(fourgastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                fourgas.active = false;
+                bens98.pay = false;
+                ForTimer();
+                litersnow4 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button13.Enabled = false;
+            }
+            if (fourgas.active == true && bens95.pay == true)
+            {
+                bens95.liters -= Convert.ToInt32(fourgastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                fourgas.active = false;
+                bens95.pay = false;
+                ForTimer();
+                litersnow4 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button13.Enabled = false;
+            }
+            if (fourgas.active == true && lpg.pay == true)
+            {
+                lpg.liters -= Convert.ToInt32(fourgastext.Text);
+                kassa += Convert.ToDouble(pricetext.Text);
+                fourgas.active = false;
+                lpg.pay = false;
+                ForTimer();
+                litersnow4 = 0;
+                timerkassa.Text = "10";
+                DisableStart();
+                button13.Enabled = false;
+            }
+
+
+
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -344,7 +649,25 @@ namespace Praktika_C_1
 
         private void timerlitr_Tick(object sender, EventArgs e)
         {
-            litersnow++;
+            if(onegas.active == true)
+            {
+                litersnow1++;
+            }
+            else if (twogas.active == true)
+            {
+                litersnow2++;
+            }
+            else if(thirdgas.active == true)
+            {
+                litersnow3++;
+            }
+            else
+            {
+                litersnow4++;
+            }
+            
+           
+            
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -363,6 +686,8 @@ namespace Praktika_C_1
             {
                 timerlitr.Enabled = true;
                 button1.Enabled = true;
+                onegas.active = true;
+                DisableStart();
             }
             else
             {
@@ -378,11 +703,343 @@ namespace Praktika_C_1
             {
                 timerlitr.Enabled = true;
                 button2.Enabled = true;
+                twogas.active = true;
+                DisableStart();
             }
             else
             {
                 MessageBox.Show("Choose type of fuel", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (radioButton12.Checked == true || radioButton11.Checked == true || radioButton10.Checked == true || radioButton9.Checked == true)
+            {
+                timerlitr.Enabled = true;
+                button4.Enabled = true;
+                thirdgas.active = true;
+                DisableStart();
+            }
+            else
+            {
+                MessageBox.Show("Choose type of fuel", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+            if (onegas.active == true && desiel.pay == true)
+            {
+                
+                onegas.active = false;
+                desiel.pay = false;
+                ForTimer();
+                litersnow1 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                onegastext.Text = "0";
+                DisableStart();
+                button1.Enabled = false;
+            }
+            if (onegas.active == true && bens95.pay == true)
+            {
+
+                onegas.active = false;
+                bens95.pay = false;
+                ForTimer();
+                litersnow1 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                onegastext.Text = "0";
+                DisableStart();
+                button1.Enabled = false;
+            }
+            if (onegas.active == true && bens98.pay == true)
+            {
+
+                onegas.active = false;
+                bens98.pay = false;
+                ForTimer();
+                litersnow1 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                onegastext.Text = "0";
+                DisableStart();
+                button1.Enabled = false;
+            }
+            if (onegas.active == true && lpg.pay == true)
+            {
+
+                onegas.active = false;
+                lpg.pay = false;
+                ForTimer();
+                litersnow1 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                onegastext.Text = "0";
+                DisableStart();
+                button1.Enabled = false;
+            }
+            //
+            if (twogas.active == true && desiel.pay == true)
+            {
+
+                twogas.active = false;
+                desiel.pay = false;
+                ForTimer();
+                litersnow2 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                twogastext.Text = "0";
+                DisableStart();
+                button2.Enabled = false;
+            }
+            if (twogas.active == true && bens95.pay == true)
+            {
+
+                twogas.active = false;
+                bens95.pay = false;
+                ForTimer();
+                litersnow2 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                twogastext.Text = "0";
+                DisableStart();
+                button2.Enabled = false;
+            }
+            if (twogas.active == true && bens98.pay == true)
+            {
+
+                twogas.active = false;
+                bens98.pay = false;
+                ForTimer();
+                litersnow2 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                twogastext.Text = "0";
+                DisableStart();
+                button2.Enabled = false;
+            }
+            if (twogas.active == true && lpg.pay == true)
+            {
+
+                twogas.active = false;
+                lpg.pay = false;
+                ForTimer();
+                litersnow2 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                twogastext.Text = "0";
+                DisableStart();
+                button2.Enabled = false;
+            }
+            //
+            if (thirdgas.active == true && desiel.pay == true)
+            {
+
+                thirdgas.active = false;
+                desiel.pay = false;
+                ForTimer();
+                litersnow3 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
+                button4.Enabled = false;
+            }
+            if (thirdgas.active == true && bens95.pay == true)
+            {
+
+                thirdgas.active = false;
+                bens95.pay = false;
+                ForTimer();
+                litersnow3 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
+                button4.Enabled = false;
+            }
+            if (thirdgas.active == true && bens98.pay == true)
+            {
+
+                thirdgas.active = false;
+                bens98.pay = false;
+                ForTimer();
+                litersnow3 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
+                button4.Enabled = false;
+            }
+            if (thirdgas.active == true && lpg.pay == true)
+            {
+
+                thirdgas.active = false;
+                lpg.pay = false;
+                ForTimer();
+                litersnow3 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                thirdgastext.Text = "0";
+                DisableStart();
+                button4.Enabled = false;
+            }
+            //
+            if (fourgas.active == true && desiel.pay == true)
+            {
+
+                fourgas.active = false;
+                desiel.pay = false;
+                ForTimer();
+                litersnow4 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
+                button13.Enabled = false;
+            }
+            if (fourgas.active == true && bens95.pay == true)
+            {
+
+                fourgas.active = false;
+                bens95.pay = false;
+                ForTimer();
+                litersnow4 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
+                button13.Enabled = false;
+            }
+            if (fourgas.active == true && bens98.pay == true)
+            {
+
+                fourgas.active = false;
+                bens98.pay = false;
+                ForTimer();
+                litersnow4 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
+                button4.Enabled = false;
+            }
+            if (fourgas.active == true && lpg.pay == true)
+            {
+
+                fourgas.active = false;
+                lpg.pay = false;
+                ForTimer();
+                litersnow4 = 0;
+                timerkassa.Text = "10";
+                pricetext.Text = "0";
+                DisableStart();
+                button4.Enabled = false;
+            }
+
+        }
+        private void DisableStart()
+        {
+            if(button11.Enabled == true || button9.Enabled == true)
+            {
+                button11.Enabled = false;
+                button9.Enabled = false;
+                button3.Enabled = false;
+                button12.Enabled = false;
+            }
+            else
+            {
+                button11.Enabled = true;
+                button9.Enabled = true;
+                button3.Enabled = true;
+                button12.Enabled = true;
+            }
+            
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            if (radioButton12.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(desiel.price * Convert.ToInt32(thirdgastext.Text));
+                desiel.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+            else if (radioButton11.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(bens98.price * Convert.ToInt32(thirdgastext.Text));
+                bens98.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+            else if (radioButton10.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(bens95.price * Convert.ToInt32(thirdgastext.Text));
+                bens95.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+            else if (radioButton9.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(lpg.price * Convert.ToInt32(thirdgastext.Text));
+                lpg.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if (radioButton16.Checked == true || radioButton15.Checked == true || radioButton14.Checked == true || radioButton13.Checked == true)
+            {
+                timerlitr.Enabled = true;
+                button13.Enabled = true;
+                fourgas.active = true;
+                DisableStart();
+            }
+            else
+            {
+                MessageBox.Show("Choose type of fuel", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (radioButton16.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(desiel.price * Convert.ToInt32(fourgastext.Text));
+                desiel.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+            else if (radioButton15.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(bens98.price * Convert.ToInt32(fourgastext.Text));
+                bens98.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+            else if (radioButton14.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(bens95.price * Convert.ToInt32(fourgastext.Text));
+                bens95.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
+            }
+            else if (radioButton13.Checked == true)
+            {
+                pricetext.Text = Convert.ToString(lpg.price * Convert.ToInt32(fourgastext.Text));
+                lpg.pay = true;
+                sec.Enabled = true;
+                timerlitr.Enabled = false;
+                DisableStart();
             }
         }
     }

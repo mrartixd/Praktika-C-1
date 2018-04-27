@@ -42,8 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerkassa = new System.Windows.Forms.Label();
             this.sec = new System.Windows.Forms.Timer(this.components);
@@ -56,14 +54,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.gasline1 = new System.Windows.Forms.Label();
             this.gasline2 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.gasline3 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.gasline4 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.gasname1 = new System.Windows.Forms.Label();
             this.gasname2 = new System.Windows.Forms.Label();
             this.gasname4 = new System.Windows.Forms.Label();
@@ -90,12 +84,29 @@
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.button10 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.radioButton14 = new System.Windows.Forms.RadioButton();
+            this.radioButton15 = new System.Windows.Forms.RadioButton();
+            this.radioButton16 = new System.Windows.Forms.RadioButton();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.onegasimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.twogasimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thrigasimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fourgasimg)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // onegasimg
@@ -121,7 +132,7 @@
             // thrigasimg
             // 
             this.thrigasimg.Image = global::Praktika_C_1.Properties.Resources.fuel;
-            this.thrigasimg.Location = new System.Drawing.Point(101, 539);
+            this.thrigasimg.Location = new System.Drawing.Point(101, 469);
             this.thrigasimg.Name = "thrigasimg";
             this.thrigasimg.Size = new System.Drawing.Size(245, 164);
             this.thrigasimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -131,7 +142,7 @@
             // fourgasimg
             // 
             this.fourgasimg.Image = global::Praktika_C_1.Properties.Resources.fuel;
-            this.fourgasimg.Location = new System.Drawing.Point(540, 539);
+            this.fourgasimg.Location = new System.Drawing.Point(540, 469);
             this.fourgasimg.Name = "fourgasimg";
             this.fourgasimg.Size = new System.Drawing.Size(245, 164);
             this.fourgasimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -146,7 +157,6 @@
             this.onegastext.Size = new System.Drawing.Size(100, 22);
             this.onegastext.TabIndex = 4;
             this.onegastext.Text = "0";
-            this.onegastext.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onegastext_KeyPress);
             // 
             // twogastext
             // 
@@ -156,27 +166,24 @@
             this.twogastext.Size = new System.Drawing.Size(100, 22);
             this.twogastext.TabIndex = 5;
             this.twogastext.Text = "0";
-            this.twogastext.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twogastext_KeyPress);
             // 
             // thirdgastext
             // 
             this.thirdgastext.Enabled = false;
-            this.thirdgastext.Location = new System.Drawing.Point(168, 725);
+            this.thirdgastext.Location = new System.Drawing.Point(168, 655);
             this.thirdgastext.Name = "thirdgastext";
             this.thirdgastext.Size = new System.Drawing.Size(100, 22);
             this.thirdgastext.TabIndex = 6;
             this.thirdgastext.Text = "0";
-            this.thirdgastext.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.thirdgastext_KeyPress);
             // 
             // fourgastext
             // 
             this.fourgastext.Enabled = false;
-            this.fourgastext.Location = new System.Drawing.Point(601, 725);
+            this.fourgastext.Location = new System.Drawing.Point(601, 653);
             this.fourgastext.Name = "fourgastext";
             this.fourgastext.Size = new System.Drawing.Size(100, 22);
             this.fourgastext.TabIndex = 7;
             this.fourgastext.Text = "0";
-            this.fourgastext.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourgastext_KeyPress);
             // 
             // label1
             // 
@@ -199,7 +206,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(274, 728);
+            this.label3.Location = new System.Drawing.Point(275, 658);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 10;
@@ -218,6 +225,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(540, 381);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 28);
@@ -225,26 +233,6 @@
             this.button2.Text = "Stop";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(180, 753);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Fuel";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(615, 753);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "Fuel";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // timer1
             // 
@@ -278,7 +266,7 @@
             // 
             // paybutton
             // 
-            this.paybutton.Location = new System.Drawing.Point(1136, 173);
+            this.paybutton.Location = new System.Drawing.Point(1070, 173);
             this.paybutton.Name = "paybutton";
             this.paybutton.Size = new System.Drawing.Size(77, 32);
             this.paybutton.TabIndex = 22;
@@ -356,15 +344,6 @@
             this.label10.TabIndex = 29;
             this.label10.Text = "Cashier:";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(852, 388);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(28, 17);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "98:";
-            // 
             // gasline1
             // 
             this.gasline1.AutoSize = true;
@@ -383,15 +362,6 @@
             this.gasline2.TabIndex = 33;
             this.gasline2.Text = "label12";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(852, 420);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 17);
-            this.label13.TabIndex = 32;
-            this.label13.Text = "95:";
-            // 
             // gasline3
             // 
             this.gasline3.AutoSize = true;
@@ -401,15 +371,6 @@
             this.gasline3.TabIndex = 35;
             this.gasline3.Text = "label12";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(852, 452);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(22, 17);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "D:";
-            // 
             // gasline4
             // 
             this.gasline4.AutoSize = true;
@@ -418,15 +379,6 @@
             this.gasline4.Size = new System.Drawing.Size(54, 17);
             this.gasline4.TabIndex = 37;
             this.gasline4.Text = "label12";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(852, 485);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 17);
-            this.label15.TabIndex = 36;
-            this.label15.Text = "LPG:";
             // 
             // gasname1
             // 
@@ -452,7 +404,7 @@
             // 
             this.gasname4.AutoSize = true;
             this.gasname4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gasname4.Location = new System.Drawing.Point(615, 482);
+            this.gasname4.Location = new System.Drawing.Point(615, 439);
             this.gasname4.Name = "gasname4";
             this.gasname4.Size = new System.Drawing.Size(100, 25);
             this.gasname4.TabIndex = 40;
@@ -462,7 +414,7 @@
             // 
             this.gasname3.AutoSize = true;
             this.gasname3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gasname3.Location = new System.Drawing.Point(180, 484);
+            this.gasname3.Location = new System.Drawing.Point(180, 441);
             this.gasname3.Name = "gasname3";
             this.gasname3.Size = new System.Drawing.Size(100, 25);
             this.gasname3.TabIndex = 41;
@@ -614,7 +566,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(707, 728);
+            this.label4.Location = new System.Drawing.Point(707, 656);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 17);
             this.label4.TabIndex = 11;
@@ -687,11 +639,184 @@
             this.radioButton8.Text = "D";
             this.radioButton8.UseVisualStyleBackColor = true;
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(1197, 173);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(77, 32);
+            this.button10.TabIndex = 58;
+            this.button10.Text = "Cancel";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click_1);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioButton9);
+            this.groupBox3.Controls.Add(this.radioButton10);
+            this.groupBox3.Controls.Add(this.radioButton11);
+            this.groupBox3.Controls.Add(this.radioButton12);
+            this.groupBox3.Location = new System.Drawing.Point(126, 683);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(220, 59);
+            this.groupBox3.TabIndex = 59;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Type Fuel";
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(152, 22);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(57, 21);
+            this.radioButton9.TabIndex = 56;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "LPG";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Location = new System.Drawing.Point(103, 22);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(45, 21);
+            this.radioButton10.TabIndex = 2;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "95";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.Location = new System.Drawing.Point(52, 22);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(45, 21);
+            this.radioButton11.TabIndex = 1;
+            this.radioButton11.TabStop = true;
+            this.radioButton11.Text = "98";
+            this.radioButton11.UseVisualStyleBackColor = true;
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Location = new System.Drawing.Point(7, 22);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(39, 21);
+            this.radioButton12.TabIndex = 0;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Text = "D";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(271, 765);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 28);
+            this.button3.TabIndex = 58;
+            this.button3.Text = "Start";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // button4
+            // 
+            this.button4.Enabled = false;
+            this.button4.Location = new System.Drawing.Point(126, 766);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 27);
+            this.button4.TabIndex = 57;
+            this.button4.Text = "Stop";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.radioButton13);
+            this.groupBox4.Controls.Add(this.radioButton14);
+            this.groupBox4.Controls.Add(this.radioButton15);
+            this.groupBox4.Controls.Add(this.radioButton16);
+            this.groupBox4.Location = new System.Drawing.Point(547, 683);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(220, 59);
+            this.groupBox4.TabIndex = 62;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Type Fuel";
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(152, 22);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(57, 21);
+            this.radioButton13.TabIndex = 56;
+            this.radioButton13.TabStop = true;
+            this.radioButton13.Text = "LPG";
+            this.radioButton13.UseVisualStyleBackColor = true;
+            // 
+            // radioButton14
+            // 
+            this.radioButton14.AutoSize = true;
+            this.radioButton14.Location = new System.Drawing.Point(103, 22);
+            this.radioButton14.Name = "radioButton14";
+            this.radioButton14.Size = new System.Drawing.Size(45, 21);
+            this.radioButton14.TabIndex = 2;
+            this.radioButton14.TabStop = true;
+            this.radioButton14.Text = "95";
+            this.radioButton14.UseVisualStyleBackColor = true;
+            // 
+            // radioButton15
+            // 
+            this.radioButton15.AutoSize = true;
+            this.radioButton15.Location = new System.Drawing.Point(52, 22);
+            this.radioButton15.Name = "radioButton15";
+            this.radioButton15.Size = new System.Drawing.Size(45, 21);
+            this.radioButton15.TabIndex = 1;
+            this.radioButton15.TabStop = true;
+            this.radioButton15.Text = "98";
+            this.radioButton15.UseVisualStyleBackColor = true;
+            // 
+            // radioButton16
+            // 
+            this.radioButton16.AutoSize = true;
+            this.radioButton16.Location = new System.Drawing.Point(7, 22);
+            this.radioButton16.Name = "radioButton16";
+            this.radioButton16.Size = new System.Drawing.Size(39, 21);
+            this.radioButton16.TabIndex = 0;
+            this.radioButton16.TabStop = true;
+            this.radioButton16.Text = "D";
+            this.radioButton16.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(692, 765);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 28);
+            this.button12.TabIndex = 61;
+            this.button12.Text = "Start";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button13
+            // 
+            this.button13.Enabled = false;
+            this.button13.Location = new System.Drawing.Point(547, 766);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(75, 27);
+            this.button13.TabIndex = 60;
+            this.button13.Text = "Stop";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // thirdtask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 802);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.button12);
+            this.Controls.Add(this.button13);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.groupBox1);
@@ -709,13 +834,9 @@
             this.Controls.Add(this.gasname2);
             this.Controls.Add(this.gasname1);
             this.Controls.Add(this.gasline4);
-            this.Controls.Add(this.label15);
             this.Controls.Add(this.gasline3);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.gasline2);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.gasline1);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -726,8 +847,6 @@
             this.Controls.Add(this.paybutton);
             this.Controls.Add(this.pricetext);
             this.Controls.Add(this.timerkassa);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
@@ -756,6 +875,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -776,8 +899,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label timerkassa;
         private System.Windows.Forms.Timer sec;
@@ -790,14 +911,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label gasline1;
         private System.Windows.Forms.Label gasline2;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label gasline3;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label gasline4;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label gasname1;
         private System.Windows.Forms.Label gasname2;
         private System.Windows.Forms.Label gasname4;
@@ -824,5 +941,20 @@
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.RadioButton radioButton12;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.RadioButton radioButton14;
+        private System.Windows.Forms.RadioButton radioButton15;
+        private System.Windows.Forms.RadioButton radioButton16;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }
