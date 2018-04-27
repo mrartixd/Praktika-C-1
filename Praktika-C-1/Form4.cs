@@ -63,7 +63,7 @@ namespace Praktika_C_1
         {
                 if (radioButton1.Checked == true)
                 {
-                    pricetext.Text = Convert.ToString(desiel.price * Convert.ToInt32(onegastext.Text));
+                    pricetext.Text = Convert.ToString(desiel.price * Convert.ToDouble(onegastext.Text));
                     
                     desiel.pay = true;
                     sec.Enabled = true;
@@ -72,7 +72,7 @@ namespace Praktika_C_1
                 }
                 else if(radioButton2.Checked == true)
                 {
-                    pricetext.Text = Convert.ToString(bens98.price * Convert.ToInt32(onegastext.Text));
+                    pricetext.Text = Convert.ToString(bens98.price * Convert.ToDouble(onegastext.Text));
                     
                    
                     bens98.pay = true;
@@ -82,7 +82,7 @@ namespace Praktika_C_1
                 }
                 else if (radioButton3.Checked == true)
                 {
-                    pricetext.Text = Convert.ToString(bens95.price * Convert.ToInt32(onegastext.Text));
+                    pricetext.Text = Convert.ToString(bens95.price * Convert.ToDouble(onegastext.Text));
                    
                     
                     bens95.pay = true;
@@ -92,7 +92,7 @@ namespace Praktika_C_1
                 }
                 else if (radioButton4.Checked == true)
                 {
-                    pricetext.Text = Convert.ToString(lpg.price * Convert.ToInt32(onegastext.Text));
+                    pricetext.Text = Convert.ToString(lpg.price * Convert.ToDouble(onegastext.Text));
                     
                     
                     lpg.pay = true;
@@ -108,43 +108,43 @@ namespace Praktika_C_1
 
             if (radioButton8.Checked == true)
             {
-                pricetext.Text = Convert.ToString(desiel.price * Convert.ToInt32(twogastext.Text));
+                pricetext.Text = Convert.ToString(desiel.price * Convert.ToDouble(twogastext.Text));
 
 
                 desiel.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+                
             }
             else if (radioButton7.Checked == true)
             {
-                pricetext.Text = Convert.ToString(bens98.price * Convert.ToInt32(twogastext.Text));
+                pricetext.Text = Convert.ToString(bens98.price * Convert.ToDouble(twogastext.Text));
 
 
                 bens98.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+                
             }
             else if (radioButton6.Checked == true)
             {
-                pricetext.Text = Convert.ToString(bens95.price * Convert.ToInt32(twogastext.Text));
+                pricetext.Text = Convert.ToString(bens95.price * Convert.ToDouble(twogastext.Text));
 
 
                 bens95.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+               
             }
             else if (radioButton5.Checked == true)
             {
-                pricetext.Text = Convert.ToString(lpg.price * Convert.ToInt32(twogastext.Text));
+                pricetext.Text = Convert.ToString(lpg.price * Convert.ToDouble(twogastext.Text));
 
 
                 lpg.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+               
             }
 
         }
@@ -168,10 +168,10 @@ namespace Praktika_C_1
             gasline2.Text = Convert.ToString(bens98.name + ": liters:" + bens98.liters + ", Price: " + bens98.price);
             gasline3.Text = Convert.ToString(desiel.name + ": liters:" + desiel.liters + ", Price: " + desiel.price);
             gasline4.Text = Convert.ToString(lpg.name + ": liters:" + lpg.liters + ", Price: " + lpg.price);
-            onegastext.Text = Convert.ToString(litersnow1);
-            twogastext.Text = Convert.ToString(litersnow2);
-            thirdgastext.Text = Convert.ToString(litersnow3);
-            fourgastext.Text = Convert.ToString(litersnow4);
+            onegastext.Text = litersnow1.ToString("F");
+            twogastext.Text = litersnow2.ToString("F");
+            thirdgastext.Text = litersnow3.ToString("F");
+            fourgastext.Text = litersnow4.ToString("F");
 
 
             //Check
@@ -322,6 +322,7 @@ namespace Praktika_C_1
                 timerkassa.Text = "10";
                 pricetext.Text = "0";
                 DisableStart();
+                
             }
             if (num == -1 && twogas.active == true)
             {
@@ -377,7 +378,7 @@ namespace Praktika_C_1
         {
             if(onegas.active == true && desiel.pay == true)
             {
-                desiel.liters -= Convert.ToInt32(onegastext.Text);
+                desiel.liters -= Convert.ToDouble(onegastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 onegas.active = false;
                 desiel.pay = false;
@@ -389,7 +390,7 @@ namespace Praktika_C_1
             }
             if(onegas.active == true && bens98.pay == true)
             {
-                bens98.liters -= Convert.ToInt32(onegastext.Text);
+                bens98.liters -= Convert.ToDouble(onegastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 onegas.active = false;
                 bens98.pay = false;
@@ -401,7 +402,7 @@ namespace Praktika_C_1
             }
             if (onegas.active == true && bens95.pay == true)
             {
-                bens95.liters -= Convert.ToInt32(onegastext.Text);
+                bens95.liters -= Convert.ToDouble(onegastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 onegas.active = false;
                 bens95.pay = false;
@@ -413,7 +414,7 @@ namespace Praktika_C_1
             }
             if (onegas.active == true && lpg.pay == true)
             {
-                lpg.liters -= Convert.ToInt32(onegastext.Text);
+                lpg.liters -= Convert.ToDouble(onegastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 onegas.active = false;
                 lpg.pay = false;
@@ -426,7 +427,7 @@ namespace Praktika_C_1
             //
             if (twogas.active == true && desiel.pay == true)
             {
-                desiel.liters -= Convert.ToInt32(twogastext.Text);
+                desiel.liters -= Convert.ToDouble(twogastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 twogas.active = false;
                 desiel.pay = false;
@@ -438,7 +439,7 @@ namespace Praktika_C_1
             }
             if (twogas.active == true && bens98.pay == true)
             {
-                bens98.liters -= Convert.ToInt32(twogastext.Text);
+                bens98.liters -= Convert.ToDouble(twogastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 twogas.active = false;
                 bens98.pay = false;
@@ -450,7 +451,7 @@ namespace Praktika_C_1
             }
             if (twogas.active == true && bens95.pay == true)
             {
-                bens95.liters -= Convert.ToInt32(twogastext.Text);
+                bens95.liters -= Convert.ToDouble(twogastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 twogas.active = false;
                 bens95.pay = false;
@@ -462,7 +463,7 @@ namespace Praktika_C_1
             }
             if (twogas.active == true && lpg.pay == true)
             {
-                lpg.liters -= Convert.ToInt32(twogastext.Text);
+                lpg.liters -= Convert.ToDouble(twogastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 twogas.active = false;
                 lpg.pay = false;
@@ -475,7 +476,7 @@ namespace Praktika_C_1
             //
             if (thirdgas.active == true && desiel.pay == true)
             {
-                desiel.liters -= Convert.ToInt32(thirdgastext.Text);
+                desiel.liters -= Convert.ToDouble(thirdgastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 thirdgas.active = false;
                 desiel.pay = false;
@@ -487,7 +488,7 @@ namespace Praktika_C_1
             }
             if (thirdgas.active == true && bens98.pay == true)
             {
-                bens98.liters -= Convert.ToInt32(thirdgastext.Text);
+                bens98.liters -= Convert.ToDouble(thirdgastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 thirdgas.active = false;
                 bens98.pay = false;
@@ -499,7 +500,7 @@ namespace Praktika_C_1
             }
             if (thirdgas.active == true && bens95.pay == true)
             {
-                bens95.liters -= Convert.ToInt32(thirdgastext.Text);
+                bens95.liters -= Convert.ToDouble(thirdgastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 thirdgas.active = false;
                 bens95.pay = false;
@@ -511,7 +512,7 @@ namespace Praktika_C_1
             }
             if (thirdgas.active == true && lpg.pay == true)
             {
-                lpg.liters -= Convert.ToInt32(thirdgastext.Text);
+                lpg.liters -= Convert.ToDouble(thirdgastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 thirdgas.active = false;
                 lpg.pay = false;
@@ -524,7 +525,7 @@ namespace Praktika_C_1
             //
             if (fourgas.active == true && desiel.pay == true)
             {
-                desiel.liters -= Convert.ToInt32(fourgastext.Text);
+                desiel.liters -= Convert.ToDouble(fourgastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 fourgas.active = false;
                 desiel.pay = false;
@@ -536,7 +537,7 @@ namespace Praktika_C_1
             }
             if (fourgas.active == true && bens98.pay == true)
             {
-                bens98.liters -= Convert.ToInt32(fourgastext.Text);
+                bens98.liters -= Convert.ToDouble(fourgastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 fourgas.active = false;
                 bens98.pay = false;
@@ -548,7 +549,7 @@ namespace Praktika_C_1
             }
             if (fourgas.active == true && bens95.pay == true)
             {
-                bens95.liters -= Convert.ToInt32(fourgastext.Text);
+                bens95.liters -= Convert.ToDouble(fourgastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 fourgas.active = false;
                 bens95.pay = false;
@@ -560,7 +561,7 @@ namespace Praktika_C_1
             }
             if (fourgas.active == true && lpg.pay == true)
             {
-                lpg.liters -= Convert.ToInt32(fourgastext.Text);
+                lpg.liters -= Convert.ToDouble(fourgastext.Text);
                 kassa += Convert.ToDouble(pricetext.Text);
                 fourgas.active = false;
                 lpg.pay = false;
@@ -651,19 +652,19 @@ namespace Praktika_C_1
         {
             if(onegas.active == true)
             {
-                litersnow1++;
+                litersnow1+= 0.010;
             }
             else if (twogas.active == true)
             {
-                litersnow2++;
+                litersnow2+= 0.010;
             }
             else if(thirdgas.active == true)
             {
-                litersnow3++;
+                litersnow3+= 0.010;
             }
             else
             {
-                litersnow4++;
+                litersnow4+= 0.010;
             }
             
            
@@ -688,6 +689,7 @@ namespace Praktika_C_1
                 button1.Enabled = true;
                 onegas.active = true;
                 DisableStart();
+               
             }
             else
             {
@@ -739,8 +741,8 @@ namespace Praktika_C_1
                 litersnow1 = 0;
                 timerkassa.Text = "10";
                 pricetext.Text = "0";
-                onegastext.Text = "0";
                 DisableStart();
+                
                 button1.Enabled = false;
             }
             if (onegas.active == true && bens95.pay == true)
@@ -752,8 +754,8 @@ namespace Praktika_C_1
                 litersnow1 = 0;
                 timerkassa.Text = "10";
                 pricetext.Text = "0";
-                onegastext.Text = "0";
                 DisableStart();
+
                 button1.Enabled = false;
             }
             if (onegas.active == true && bens98.pay == true)
@@ -765,8 +767,8 @@ namespace Praktika_C_1
                 litersnow1 = 0;
                 timerkassa.Text = "10";
                 pricetext.Text = "0";
-                onegastext.Text = "0";
                 DisableStart();
+
                 button1.Enabled = false;
             }
             if (onegas.active == true && lpg.pay == true)
@@ -778,7 +780,6 @@ namespace Praktika_C_1
                 litersnow1 = 0;
                 timerkassa.Text = "10";
                 pricetext.Text = "0";
-                onegastext.Text = "0";
                 DisableStart();
                 button1.Enabled = false;
             }
@@ -792,7 +793,6 @@ namespace Praktika_C_1
                 litersnow2 = 0;
                 timerkassa.Text = "10";
                 pricetext.Text = "0";
-                twogastext.Text = "0";
                 DisableStart();
                 button2.Enabled = false;
             }
@@ -805,7 +805,6 @@ namespace Praktika_C_1
                 litersnow2 = 0;
                 timerkassa.Text = "10";
                 pricetext.Text = "0";
-                twogastext.Text = "0";
                 DisableStart();
                 button2.Enabled = false;
             }
@@ -818,7 +817,6 @@ namespace Praktika_C_1
                 litersnow2 = 0;
                 timerkassa.Text = "10";
                 pricetext.Text = "0";
-                twogastext.Text = "0";
                 DisableStart();
                 button2.Enabled = false;
             }
@@ -831,7 +829,6 @@ namespace Praktika_C_1
                 litersnow2 = 0;
                 timerkassa.Text = "10";
                 pricetext.Text = "0";
-                twogastext.Text = "0";
                 DisableStart();
                 button2.Enabled = false;
             }
@@ -844,7 +841,6 @@ namespace Praktika_C_1
                 ForTimer();
                 litersnow3 = 0;
                 timerkassa.Text = "10";
-                pricetext.Text = "0";
                 DisableStart();
                 button4.Enabled = false;
             }
@@ -856,7 +852,6 @@ namespace Praktika_C_1
                 ForTimer();
                 litersnow3 = 0;
                 timerkassa.Text = "10";
-                pricetext.Text = "0";
                 DisableStart();
                 button4.Enabled = false;
             }
@@ -868,7 +863,6 @@ namespace Praktika_C_1
                 ForTimer();
                 litersnow3 = 0;
                 timerkassa.Text = "10";
-                pricetext.Text = "0";
                 DisableStart();
                 button4.Enabled = false;
             }
@@ -881,7 +875,6 @@ namespace Praktika_C_1
                 litersnow3 = 0;
                 timerkassa.Text = "10";
                 pricetext.Text = "0";
-                thirdgastext.Text = "0";
                 DisableStart();
                 button4.Enabled = false;
             }
@@ -959,35 +952,35 @@ namespace Praktika_C_1
         {
             if (radioButton12.Checked == true)
             {
-                pricetext.Text = Convert.ToString(desiel.price * Convert.ToInt32(thirdgastext.Text));
+                pricetext.Text = Convert.ToString(desiel.price * Convert.ToDouble(thirdgastext.Text));
                 desiel.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+               
             }
             else if (radioButton11.Checked == true)
             {
-                pricetext.Text = Convert.ToString(bens98.price * Convert.ToInt32(thirdgastext.Text));
+                pricetext.Text = Convert.ToString(bens98.price * Convert.ToDouble(thirdgastext.Text));
                 bens98.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+                
             }
             else if (radioButton10.Checked == true)
             {
-                pricetext.Text = Convert.ToString(bens95.price * Convert.ToInt32(thirdgastext.Text));
+                pricetext.Text = Convert.ToString(bens95.price * Convert.ToDouble(thirdgastext.Text));
                 bens95.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+                
             }
             else if (radioButton9.Checked == true)
             {
-                pricetext.Text = Convert.ToString(lpg.price * Convert.ToInt32(thirdgastext.Text));
+                pricetext.Text = Convert.ToString(lpg.price * Convert.ToDouble(thirdgastext.Text));
                 lpg.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+                
             }
         }
 
@@ -999,6 +992,7 @@ namespace Praktika_C_1
                 button13.Enabled = true;
                 fourgas.active = true;
                 DisableStart();
+
             }
             else
             {
@@ -1011,35 +1005,35 @@ namespace Praktika_C_1
         {
             if (radioButton16.Checked == true)
             {
-                pricetext.Text = Convert.ToString(desiel.price * Convert.ToInt32(fourgastext.Text));
+                pricetext.Text = Convert.ToString(desiel.price * Convert.ToDouble(fourgastext.Text));
                 desiel.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+               
             }
             else if (radioButton15.Checked == true)
             {
-                pricetext.Text = Convert.ToString(bens98.price * Convert.ToInt32(fourgastext.Text));
+                pricetext.Text = Convert.ToString(bens98.price * Convert.ToDouble(fourgastext.Text));
                 bens98.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+               
             }
             else if (radioButton14.Checked == true)
             {
-                pricetext.Text = Convert.ToString(bens95.price * Convert.ToInt32(fourgastext.Text));
+                pricetext.Text = Convert.ToString(bens95.price * Convert.ToDouble(fourgastext.Text));
                 bens95.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+               
             }
             else if (radioButton13.Checked == true)
             {
-                pricetext.Text = Convert.ToString(lpg.price * Convert.ToInt32(fourgastext.Text));
+                pricetext.Text = Convert.ToString(lpg.price * Convert.ToDouble(fourgastext.Text));
                 lpg.pay = true;
                 sec.Enabled = true;
                 timerlitr.Enabled = false;
-                DisableStart();
+               
             }
         }
     }

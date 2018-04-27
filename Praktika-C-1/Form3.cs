@@ -309,10 +309,10 @@ namespace Praktika_C_1
             heatertimer.Text = heater.timeon.ToString("HH:mm");
             radiatortimer.Text = radiator.timeon.ToString("HH:mm");
             time = "";
-            if (hh > 23 && mm>59)
+            if (hh > 23)
             {
                 hh = 0;
-                mm = 0;
+               
             }
             else if (mm> 59)
             {

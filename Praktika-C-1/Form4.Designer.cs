@@ -494,6 +494,7 @@
             // 
             // timerlitr
             // 
+            this.timerlitr.Interval = 10;
             this.timerlitr.Tick += new System.EventHandler(this.timerlitr_Tick);
             // 
             // button11

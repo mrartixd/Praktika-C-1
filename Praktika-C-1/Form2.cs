@@ -47,7 +47,39 @@ namespace Praktika_C_1
         {
             
             clock.Text = DateTime.Now.ToLongTimeString();
-            timer1.Start(); 
+            timer1.Start();
+            UpdateTime();
+        }
+
+        
+
+        private void UpdateTime()
+        {
+            //dataGridView1.Rows[]
+            
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if(Convert.ToString(row.Cells["endtime"].Value) != string.Empty)
+                {
+                    dt = Convert.ToDateTime(row.Cells[0].Value.ToString()).Date + Convert.ToDateTime(row.Cells[1].Value.ToString()).TimeOfDay;
+                    TimeSpan ts = dt - DateTime.Now;
+                    timeoff = string.Format("{0} day, {1} hour, {2} minute", ts.Days, ts.Hours, ts.Minutes);
+                    row.Cells[3].Value = timeoff;
+
+                    
+                        if (ts.Days == 0 && ts.Hours == 0 && ts.Minutes == 0)
+                        {
+                        dataGridView1.Rows.RemoveAt(row.Index);
+                        }
+                    
+
+                    
+                }
+                dataGridView1.Refresh();
+                    //More code here
+                }
+            
+            
         }
 
         private void addtimer_Click(object sender, EventArgs e)
@@ -66,10 +98,10 @@ namespace Praktika_C_1
 
                 if (ev.dateevent.Date == DateTime.Now.Date)
                 {
-                    if (ev.dateevent.Hour > DateTime.Now.Hour)
+                    if (ev.dateevent.Hour > DateTime.Now.Hour )
                     {
 
-                        dataGridView1.Rows.Add(ev.dateevent.ToString("dd.MM.yyyy"), ev.dateevent.ToString("hh:mm"), ev.nameevent, ev.timeoff);
+                        dataGridView1.Rows.Add(ev.dateevent.ToString("dd.MM.yyyy"), ev.dateevent.ToString("HH:mm"), ev.nameevent, ev.timeoff);
                     }
                     else
                     {
